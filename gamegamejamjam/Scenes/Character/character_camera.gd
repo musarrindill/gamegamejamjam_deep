@@ -10,7 +10,7 @@ func _ready() -> void:
 	defaultZoom = zoom
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
+	if event.is_action_pressed("Zoom"):
 		state = !state
 		print(state)
 		

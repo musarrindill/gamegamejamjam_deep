@@ -4,10 +4,13 @@
 [ext_resource type="Script" uid="uid://b8jygcgtjkweb" path="res://Scenes/GameManager1.gd" id="1_wowpa"]
 [ext_resource type="Script" uid="uid://darc5efosilg1" path="res://Scenes/Character/CharacterController.gd" id="2_qxrlw"]
 [ext_resource type="Texture2D" uid="uid://b605ljymsmnm8" path="res://Art/gamejammap.png" id="2_wowpa"]
+[ext_resource type="Texture2D" uid="uid://bus54jfnugoo" path="res://Art/miscImages/Jungle.jpg" id="3_h4fw4"]
 [ext_resource type="Texture2D" uid="uid://dr3pdoi1bykyx" path="res://Character/character.png" id="4_i6g32"]
 [ext_resource type="Script" uid="uid://ncfir5gtg4iv" path="res://Scenes/Character/characterAnimation.gd" id="5_1l0tm"]
 [ext_resource type="Texture2D" uid="uid://cyh7j0v2xunsd" path="res://Art/demo_atlas.png" id="5_wowpa"]
 [ext_resource type="Script" uid="uid://b6pw4bni8b3qi" path="res://Scenes/Character/character_camera.gd" id="6_v158k"]
+[ext_resource type="Script" uid="uid://dphj4ehn11wyk" path="res://Scenes/Teleporter/teleporter.gd" id="10_ldgsr"]
+[ext_resource type="AudioStream" uid="uid://c7f66xfcux0wb" path="res://Music/gamejam4_tune.wav" id="10_o5yvi"]
 
 [sub_resource type="Gradient" id="Gradient_wowpa"]
 interpolation_mode = 1
@@ -62,6 +65,14 @@ fade_time = 0.1
 stream_count = 1
 stream_0 = ExtResource("1_3dryh")
 
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_rku1e"]
+fade_time = 0.1
+stream_count = 1
+stream_0 = ExtResource("10_o5yvi")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o5yvi"]
+radius = 100.0
+
 [node name="Game" type="Node2D" unique_id=1268051739]
 script = ExtResource("1_wowpa")
 
@@ -91,6 +102,11 @@ polygon = PackedVector2Array(919, -3459, 816, -3543, 891, -3727, 1234, -3793, 13
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Map/heili" unique_id=1444493570]
 build_mode = 1
 polygon = PackedVector2Array(-165, -4598, -86, -4642, 1, -4946, 91, -5047, 222, -5280, 439, -5351, 830, -5339, 1097, -5390, 1222, -5487, 1272, -5678, 1268, -6035, 1028, -6371, 563, -6555, 305, -6617, -68, -6594, -501, -6458, -819, -6235, -1003, -5963, -1099, -5694, -1099, -5392, -1012, -5139, -770, -4911, -602, -4793, -404, -4752, -247, -4802, -238, -4625)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/heili" unique_id=999795897]
+position = Vector2(0, -1)
+build_mode = 1
+polygon = PackedVector2Array(-519, -5534, -314, -5554, -248, -5534, -197, -5431, -196, -5215, -204, -5164, -244, -5140, -239, -5064, -264, -5000, -322, -4962, -404, -4967, -556, -4989, -663, -5062, -731, -5193, -751, -5265, -762, -5369, -716, -5454, -674, -5462, -570, -5524)
 
 [node name="inni" type="StaticBody2D" parent="Map" unique_id=1473957558]
 
@@ -135,31 +151,37 @@ texture = SubResource("GradientTexture2D_i6g32")
 
 [node name="maze" type="StaticBody2D" parent="Map" unique_id=1223185294]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1674180056]
-position = Vector2(215, 2132)
+[node name="Jungle" type="Sprite2D" parent="Map" unique_id=230001158]
+position = Vector2(-501, -1086)
+texture = ExtResource("3_h4fw4")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1674180056]
+position = Vector2(1017, -4352)
 script = ExtResource("2_qxrlw")
 SPEED = 500.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=504895108]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=504895108]
 shape = SubResource("RectangleShape2D_ebmjs")
 
-[node name="shadowSprite" type="Sprite2D" parent="CharacterBody2D" unique_id=987313233]
+[node name="shadowSprite" type="Sprite2D" parent="Player" unique_id=987313233]
 position = Vector2(0, 29)
 texture = SubResource("GradientTexture2D_v158k")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=385349580]
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=385349580]
 texture = SubResource("AtlasTexture_wowpa")
 hframes = 3
 script = ExtResource("5_1l0tm")
 
-[node name="Timer" type="Timer" parent="CharacterBody2D/Sprite2D" unique_id=921201483]
+[node name="Timer" type="Timer" parent="Player/Sprite2D" unique_id=921201483]
 wait_time = 0.25
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1012277471]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1012277471]
 zoom = Vector2(1.5, 1.5)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 script = ExtResource("6_v158k")
 
-[node name="Footsteps" type="AudioStreamPlayer" parent="CharacterBody2D" unique_id=134937160]
+[node name="Footsteps" type="AudioStreamPlayer" parent="Player" unique_id=134937160]
 stream = SubResource("AudioStreamRandomizer_1l0tm")
 volume_db = -12.0
 pitch_scale = 2.0
@@ -172,11 +194,47 @@ scale = Vector2(4, 4)
 tile_map_data = PackedByteArray("AAAHAAoAAgAAAAAAAAAIAAsAAgAAAAAAAAAEAAcAAgAAAAAAAAACAAkAAgAAAAAAAAA=")
 tile_set = SubResource("TileSet_3dryh")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=720188536]
+[node name="CrotchAudio" type="AudioStreamPlayer2D" parent="." unique_id=720188536]
 position = Vector2(233, 2860)
 stream = SubResource("AudioStreamPlaylist_3dryh")
 volume_db = -12.0
 autoplay = true
 attenuation = 3.0314329
 
-[connection signal="timeout" from="CharacterBody2D/Sprite2D/Timer" to="CharacterBody2D/Sprite2D" method="_on_timer_timeout"]
+[node name="BrainAudio" type="AudioStreamPlayer2D" parent="." unique_id=1919914372]
+position = Vector2(-4, -6426)
+stream = SubResource("AudioStreamPlaylist_rku1e")
+volume_db = -12.0
+autoplay = true
+max_distance = 1500.0
+attenuation = 0.37892905
+
+[node name="Teleporters" type="Node2D" parent="." unique_id=428377364]
+
+[node name="Teleporter" type="Area2D" parent="Teleporters" unique_id=1081454921 node_paths=PackedStringArray("counterpart", "offset")]
+position = Vector2(1246, 6347)
+script = ExtResource("10_ldgsr")
+counterpart = NodePath("../Teleporter2")
+offset = NodePath("Marker2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporters/Teleporter" unique_id=1416337000]
+shape = SubResource("CircleShape2D_o5yvi")
+
+[node name="Marker2D" type="Marker2D" parent="Teleporters/Teleporter" unique_id=1615344488]
+position = Vector2(-25, -231)
+
+[node name="Teleporter2" type="Area2D" parent="Teleporters" unique_id=2090217853 node_paths=PackedStringArray("counterpart", "offset")]
+position = Vector2(-158, -4702)
+script = ExtResource("10_ldgsr")
+counterpart = NodePath("../Teleporter")
+offset = NodePath("Marker2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporters/Teleporter2" unique_id=2102133153]
+shape = SubResource("CircleShape2D_o5yvi")
+
+[node name="Marker2D" type="Marker2D" parent="Teleporters/Teleporter2" unique_id=430021032]
+position = Vector2(16, -233)
+
+[connection signal="timeout" from="Player/Sprite2D/Timer" to="Player/Sprite2D" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Teleporters/Teleporter" to="Teleporters/Teleporter" method="_on_body_entered"]
+[connection signal="body_entered" from="Teleporters/Teleporter2" to="Teleporters/Teleporter2" method="_on_body_entered"]
