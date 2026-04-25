@@ -8,5 +8,5 @@ func _ready() -> void:
 	max_value = parent.maxHealth
 	value = max_value
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	value = parent.health

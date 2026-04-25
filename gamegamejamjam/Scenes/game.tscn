@@ -14,7 +14,17 @@
 [ext_resource type="AudioStream" uid="uid://c7f66xfcux0wb" path="res://Music/gamejam4_tune.wav" id="10_o5yvi"]
 [ext_resource type="AudioStream" uid="uid://ond2bfrtprnl" path="res://Music/gamejam_soundscape_1.mp3" id="12_rku1e"]
 [ext_resource type="Script" uid="uid://dg6s12t3e38s6" path="res://Scenes/object.gd" id="13_1phco"]
-[ext_resource type="Texture2D" uid="uid://dmw5ft4akvi6g" path="res://Art/miscImages/inventoryobject.webp" id="14_1phco"]
+[ext_resource type="Script" uid="uid://qvup8l6jon7d" path="res://Scenes/collection_item_1.gd" id="15_7t8sx"]
+[ext_resource type="Texture2D" uid="uid://dhp5vs4evcjys" path="res://Art/miscImages/collect1.webp" id="16_85qyi"]
+[ext_resource type="Texture2D" uid="uid://mr1t7vb3a53" path="res://Art/miscImages/collect2.webp" id="16_iivbl"]
+[ext_resource type="Texture2D" uid="uid://7wiadaofchdw" path="res://Art/miscImages/collect3.webp" id="17_iivbl"]
+[ext_resource type="Script" uid="uid://cncr7gex2l0uw" path="res://Scenes/collection_item_2.gd" id="17_mg4q0"]
+[ext_resource type="Texture2D" uid="uid://5l0qo77wwhig" path="res://Art/miscImages/collect4.webp" id="18_7nbq1"]
+[ext_resource type="Script" uid="uid://dplj017egrp1u" path="res://Scenes/collection_item_3.gd" id="19_vm72l"]
+[ext_resource type="Script" uid="uid://de2lxsenicri6" path="res://Scenes/lungarea.gd" id="20_7nbq1"]
+[ext_resource type="Script" uid="uid://djpm6jcfr6ask" path="res://Scenes/brainarea.gd" id="21_exi56"]
+[ext_resource type="Script" uid="uid://buldj6fmuptrm" path="res://Scenes/reainforest.gd" id="25_22asu"]
+[ext_resource type="Script" uid="uid://kydsp0t1c84d" path="res://Scenes/maze.gd" id="26_fkdbe"]
 [ext_resource type="PackedScene" uid="uid://b5u85aeo6suxj" path="res://Scenes/Enemy/enemy.tscn" id="17_85qyi"]
 [ext_resource type="Script" uid="uid://ctlisqrmsi3b7" path="res://Scenes/UI/available_spawns.gd" id="17_ewbju"]
 
@@ -508,21 +518,90 @@ volume_db = -12.0
 autoplay = true
 bus = &"Ambience"
 
-[node name="Object" type="Area2D" parent="." unique_id=380358405]
-position = Vector2(-452, -484)
+[node name="collectionItem1" type="Area2D" parent="." unique_id=380358405]
+position = Vector2(-256, -630)
 scale = Vector2(0.5, 0.5)
-script = ExtResource("13_1phco")
+script = ExtResource("15_7t8sx")
 
-[node name="Sprite2D" type="Sprite2D" parent="Object" unique_id=1431445822]
+[node name="Sprite2D" type="Sprite2D" parent="collectionItem1" unique_id=1431445822]
 texture_filter = 1
-texture = ExtResource("14_1phco")
+texture = ExtResource("16_iivbl")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Object" unique_id=1342239179]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collectionItem1" unique_id=1342239179]
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_1phco")
 debug_color = Color(0, 0.6, 0.7019608, 0.41960785)
 
 [node name="Followers" type="Node2D" parent="." unique_id=2106635774]
+
+[node name="collectionItem2" type="Area2D" parent="." unique_id=1411431683]
+position = Vector2(-10, -527)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("17_mg4q0")
+
+[node name="Sprite2D" type="Sprite2D" parent="collectionItem2" unique_id=1436417151]
+texture_filter = 1
+texture = ExtResource("16_85qyi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collectionItem2" unique_id=2146556122]
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_1phco")
+debug_color = Color(0, 0.6, 0.7019608, 0.41960785)
+
+[node name="collectionItem3" type="Area2D" parent="." unique_id=775151335]
+position = Vector2(-823, -662)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("19_vm72l")
+
+[node name="Sprite2D" type="Sprite2D" parent="collectionItem3" unique_id=159567779]
+texture_filter = 1
+texture = ExtResource("17_iivbl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collectionItem3" unique_id=1349600051]
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_1phco")
+debug_color = Color(0, 0.6, 0.7019608, 0.41960785)
+
+[node name="collectionItem4" type="Area2D" parent="." unique_id=1664868019]
+position = Vector2(-452, -484)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("13_1phco")
+
+[node name="Sprite2D" type="Sprite2D" parent="collectionItem4" unique_id=1294982882]
+texture_filter = 1
+texture = ExtResource("18_7nbq1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collectionItem4" unique_id=1408983803]
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_1phco")
+debug_color = Color(0, 0.6, 0.7019608, 0.41960785)
+
+[node name="Lungarea" type="Area2D" parent="." unique_id=721479583]
+script = ExtResource("20_7nbq1")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Lungarea" unique_id=706156334]
+position = Vector2(-708, -1715)
+polygon = PackedVector2Array(-172, -10, -321, -8, -544, -154, -574, -451, -530, -657, -257, -1234, -60, -1541, 210, -1898, 340, -1958, 537, -1888, 621, -1558, 667, -1381, 767, -1425, 941, -1418, 1031, -1415, 1088, -1635, 1138, -1842, 1281, -1968, 1428, -1875, 1515, -1695, 1748, -1495, 1968, -1048, 2108, -697, 2188, -237, 2055, -87, 1688, -14, 1461, -7, 1161, -150, 991, -360, 904, -724, 934, -958, 944, -1171, 887, -1281, 757, -1244, 744, -1114, 724, -884, 707, -697, 677, -384, 597, -210, 400, -50, 254, -7)
+
+[node name="brainarea" type="Area2D" parent="." unique_id=1952738494]
+script = ExtResource("21_exi56")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="brainarea" unique_id=184149065]
+position = Vector2(-260, -4841)
+polygon = PackedVector2Array(-189, 47, -410, -22, -772, -382, -825, -773, -655, -1223, -330, -1561, 126, -1738, 594, -1776, 1092, -1637, 1413, -1369, 1534, -939, 1443, -588, 1058, -501, 677, -501, 466, -441, 364, -218, 300, -165, 213, 23, 145, 246, 40, 231, 17, 106, -32, 35)
+
+[node name="Rainforest" type="Area2D" parent="." unique_id=1844621339]
+script = ExtResource("25_22asu")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rainforest" unique_id=517542704]
+position = Vector2(-375, -334)
+polygon = PackedVector2Array(155, -23, 240, -128, 349, -75, 506, 21, 756, -7, 957, 13, 1018, 94, 1392, 25, 1396, -95, 1674, -172, 1723, -269, 1775, -482, 1755, -768, 1654, -805, 1517, -728, 1449, -627, 1408, -954, 1239, -1111, 1050, -1123, 905, -1115, 961, -1256, 909, -1365, 699, -1429, 478, -1429, 208, -1397, -99, -1304, -296, -1268, -554, -1188, -747, -986, -852, -700, -868, -490, -852, -289, -764, -79, -627, -39, -405, -79, -304, -269, -151, -309, -252, -216, -332, -71, -357, 1, -147, 17, 83, -7)
+
+[node name="Maze" type="Area2D" parent="." unique_id=1630323209]
+script = ExtResource("26_fkdbe")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Maze" unique_id=456149713]
+polygon = PackedVector2Array(-50, -252, -210, -330, -360, -325, -554, -304, -797, -273, -1149, -258, -1322, -247, -1322, 325, -1318, 778, -1293, 865, -902, 854, -630, 850, -451, 816, -336, 829, -239, 829, 16, 854, 323, 879, 540, 858, 825, 860, 975, 866, 1119, 858, 1292, 854, 1328, 638, 1321, 227, 1313, -134, 967, -164, 460, -200, 217, -219)
 
 [node name="Enemy" parent="." unique_id=130497674 instance=ExtResource("17_85qyi")]
 position = Vector2(-631, -1665)
