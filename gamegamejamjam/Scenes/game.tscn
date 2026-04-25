@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://b6pw4bni8b3qi" path="res://Scenes/Character/character_camera.gd" id="6_v158k"]
 [ext_resource type="Script" uid="uid://dphj4ehn11wyk" path="res://Scenes/Teleporter/teleporter.gd" id="10_ldgsr"]
 [ext_resource type="AudioStream" uid="uid://c7f66xfcux0wb" path="res://Music/gamejam4_tune.wav" id="10_o5yvi"]
+[ext_resource type="AudioStream" uid="uid://ond2bfrtprnl" path="res://Music/gamejam_soundscape_1.mp3" id="12_rku1e"]
 
 [sub_resource type="Gradient" id="Gradient_wowpa"]
 interpolation_mode = 1
@@ -23,6 +24,150 @@ width = 1000
 height = 1000
 fill = 1
 fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_rku1e"]
+a = Vector2(-51, -110)
+b = Vector2(-1087, -102)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_rfjv2"]
+a = Vector2(-51, -110)
+b = Vector2(-51, -243)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_1phco"]
+a = Vector2(-518, -315)
+b = Vector2(-196, -314)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_nb51f"]
+a = Vector2(-1087, -98)
+b = Vector2(-1097, 37)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_nnt18"]
+a = Vector2(-475, 50)
+b = Vector2(-1097, 37)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ewbju"]
+a = Vector2(-475, 50)
+b = Vector2(-471, 609)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_85qyi"]
+a = Vector2(-621, 221)
+b = Vector2(-624, 843)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_iivbl"]
+a = Vector2(-621, 221)
+b = Vector2(-1106, 208)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_7nbq1"]
+a = Vector2(-1128, 644)
+b = Vector2(-1106, 208)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_exi56"]
+a = Vector2(-1128, 644)
+b = Vector2(-869, 651)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_7t8sx"]
+a = Vector2(-862, 411)
+b = Vector2(-869, 651)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_mg4q0"]
+a = Vector2(-295, 33)
+b = Vector2(-303, 825)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_vm72l"]
+a = Vector2(-3, 693)
+b = Vector2(-304, 685)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_22asu"]
+a = Vector2(-152, 524)
+b = Vector2(-157, 20)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_fkdbe"]
+a = Vector2(-152, 524)
+b = Vector2(277, 529)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_81klo"]
+a = Vector2(302, 884)
+b = Vector2(283, 383)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_tgy6u"]
+a = Vector2(135, 190)
+b = Vector2(-148, 183)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_cwurv"]
+a = Vector2(135, 190)
+b = Vector2(149, 90)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_mucmn"]
+a = Vector2(258, 91)
+b = Vector2(149, 90)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_8m3t6"]
+a = Vector2(258, 91)
+b = Vector2(266, 232)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ese38"]
+a = Vector2(590, 233)
+b = Vector2(266, 232)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_oeip8"]
+a = Vector2(464, 235)
+b = Vector2(467, 671)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_xe308"]
+a = Vector2(1136, 670)
+b = Vector2(467, 671)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_d3cha"]
+a = Vector2(1136, 670)
+b = Vector2(1132, -2)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_i26dy"]
+a = Vector2(962, 521)
+b = Vector2(964, -77)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_lmoi6"]
+a = Vector2(962, 521)
+b = Vector2(671, 522)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_6uxt2"]
+a = Vector2(680, 336)
+b = Vector2(671, 522)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ym3tv"]
+a = Vector2(680, 336)
+b = Vector2(839, 338)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_bwj6o"]
+a = Vector2(837, 72)
+b = Vector2(839, 338)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_f3c8l"]
+a = Vector2(837, 72)
+b = Vector2(621, 76)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_bu0y5"]
+a = Vector2(962, -72)
+b = Vector2(473, -65)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_6a4tp"]
+a = Vector2(476, 39)
+b = Vector2(473, -65)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_631el"]
+a = Vector2(476, 39)
+b = Vector2(401, 38)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_vs120"]
+a = Vector2(403, -48)
+b = Vector2(401, 38)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_v2cs8"]
+a = Vector2(403, -48)
+b = Vector2(72, -53)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_32sfa"]
+a = Vector2(-51, -107)
+b = Vector2(72, -53)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ebmjs"]
 size = Vector2(64, 64)
@@ -60,6 +205,9 @@ texture = ExtResource("5_wowpa")
 physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_i6g32")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_o5yvi"]
+radius = 100.0
+
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_3dryh"]
 fade_time = 0.1
 stream_count = 1
@@ -70,8 +218,10 @@ fade_time = 0.1
 stream_count = 1
 stream_0 = ExtResource("10_o5yvi")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_o5yvi"]
-radius = 100.0
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_rfjv2"]
+fade_time = 0.01
+stream_count = 1
+stream_0 = ExtResource("12_rku1e")
 
 [node name="Game" type="Node2D" unique_id=1268051739]
 script = ExtResource("1_wowpa")
@@ -151,12 +301,120 @@ texture = SubResource("GradientTexture2D_i6g32")
 
 [node name="maze" type="StaticBody2D" parent="Map" unique_id=1223185294]
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/maze" unique_id=875715177]
+shape = SubResource("SegmentShape2D_rku1e")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Map/maze" unique_id=1528313227]
+shape = SubResource("SegmentShape2D_rfjv2")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Map/maze" unique_id=1638914065]
+shape = SubResource("SegmentShape2D_1phco")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Map/maze" unique_id=1434081120]
+shape = SubResource("SegmentShape2D_nb51f")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Map/maze" unique_id=975221390]
+shape = SubResource("SegmentShape2D_nnt18")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Map/maze" unique_id=1209148105]
+shape = SubResource("SegmentShape2D_ewbju")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Map/maze" unique_id=1740158393]
+shape = SubResource("SegmentShape2D_85qyi")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Map/maze" unique_id=447521300]
+shape = SubResource("SegmentShape2D_iivbl")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Map/maze" unique_id=1960703464]
+shape = SubResource("SegmentShape2D_7nbq1")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Map/maze" unique_id=1984247645]
+shape = SubResource("SegmentShape2D_exi56")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Map/maze" unique_id=944818297]
+shape = SubResource("SegmentShape2D_7t8sx")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="Map/maze" unique_id=938531255]
+shape = SubResource("SegmentShape2D_mg4q0")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="Map/maze" unique_id=312232840]
+shape = SubResource("SegmentShape2D_vm72l")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="Map/maze" unique_id=1235963645]
+shape = SubResource("SegmentShape2D_22asu")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="Map/maze" unique_id=38369267]
+shape = SubResource("SegmentShape2D_fkdbe")
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="Map/maze" unique_id=823287559]
+shape = SubResource("SegmentShape2D_81klo")
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="Map/maze" unique_id=1558387920]
+shape = SubResource("SegmentShape2D_tgy6u")
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="Map/maze" unique_id=223517008]
+shape = SubResource("SegmentShape2D_cwurv")
+
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="Map/maze" unique_id=1426742113]
+shape = SubResource("SegmentShape2D_mucmn")
+
+[node name="CollisionShape2D20" type="CollisionShape2D" parent="Map/maze" unique_id=1033251758]
+shape = SubResource("SegmentShape2D_8m3t6")
+
+[node name="CollisionShape2D21" type="CollisionShape2D" parent="Map/maze" unique_id=1168638487]
+shape = SubResource("SegmentShape2D_ese38")
+
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="Map/maze" unique_id=584365051]
+shape = SubResource("SegmentShape2D_oeip8")
+
+[node name="CollisionShape2D23" type="CollisionShape2D" parent="Map/maze" unique_id=752492232]
+shape = SubResource("SegmentShape2D_xe308")
+
+[node name="CollisionShape2D24" type="CollisionShape2D" parent="Map/maze" unique_id=1367219974]
+shape = SubResource("SegmentShape2D_d3cha")
+
+[node name="CollisionShape2D25" type="CollisionShape2D" parent="Map/maze" unique_id=425668587]
+shape = SubResource("SegmentShape2D_i26dy")
+
+[node name="CollisionShape2D26" type="CollisionShape2D" parent="Map/maze" unique_id=953097561]
+shape = SubResource("SegmentShape2D_lmoi6")
+
+[node name="CollisionShape2D27" type="CollisionShape2D" parent="Map/maze" unique_id=632084081]
+shape = SubResource("SegmentShape2D_6uxt2")
+
+[node name="CollisionShape2D28" type="CollisionShape2D" parent="Map/maze" unique_id=1128155955]
+shape = SubResource("SegmentShape2D_ym3tv")
+
+[node name="CollisionShape2D29" type="CollisionShape2D" parent="Map/maze" unique_id=1132175712]
+shape = SubResource("SegmentShape2D_bwj6o")
+
+[node name="CollisionShape2D30" type="CollisionShape2D" parent="Map/maze" unique_id=48442253]
+shape = SubResource("SegmentShape2D_f3c8l")
+
+[node name="CollisionShape2D31" type="CollisionShape2D" parent="Map/maze" unique_id=890832612]
+shape = SubResource("SegmentShape2D_bu0y5")
+
+[node name="CollisionShape2D32" type="CollisionShape2D" parent="Map/maze" unique_id=354351454]
+shape = SubResource("SegmentShape2D_6a4tp")
+
+[node name="CollisionShape2D33" type="CollisionShape2D" parent="Map/maze" unique_id=2109822449]
+shape = SubResource("SegmentShape2D_631el")
+
+[node name="CollisionShape2D34" type="CollisionShape2D" parent="Map/maze" unique_id=503288376]
+shape = SubResource("SegmentShape2D_vs120")
+
+[node name="CollisionShape2D35" type="CollisionShape2D" parent="Map/maze" unique_id=1637192230]
+shape = SubResource("SegmentShape2D_v2cs8")
+
+[node name="CollisionShape2D36" type="CollisionShape2D" parent="Map/maze" unique_id=2105955072]
+shape = SubResource("SegmentShape2D_32sfa")
+
 [node name="Jungle" type="Sprite2D" parent="Map" unique_id=230001158]
 position = Vector2(-501, -1086)
 texture = ExtResource("3_h4fw4")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1674180056]
-position = Vector2(1017, -4352)
+position = Vector2(-571, -399)
 script = ExtResource("2_qxrlw")
 SPEED = 500.0
 
@@ -194,21 +452,6 @@ scale = Vector2(4, 4)
 tile_map_data = PackedByteArray("AAAHAAoAAgAAAAAAAAAIAAsAAgAAAAAAAAAEAAcAAgAAAAAAAAACAAkAAgAAAAAAAAA=")
 tile_set = SubResource("TileSet_3dryh")
 
-[node name="CrotchAudio" type="AudioStreamPlayer2D" parent="." unique_id=720188536]
-position = Vector2(233, 2860)
-stream = SubResource("AudioStreamPlaylist_3dryh")
-volume_db = -12.0
-autoplay = true
-attenuation = 3.0314329
-
-[node name="BrainAudio" type="AudioStreamPlayer2D" parent="." unique_id=1919914372]
-position = Vector2(-4, -6426)
-stream = SubResource("AudioStreamPlaylist_rku1e")
-volume_db = -12.0
-autoplay = true
-max_distance = 1500.0
-attenuation = 0.37892905
-
 [node name="Teleporters" type="Node2D" parent="." unique_id=428377364]
 
 [node name="Teleporter" type="Area2D" parent="Teleporters" unique_id=1081454921 node_paths=PackedStringArray("counterpart", "offset")]
@@ -234,6 +477,29 @@ shape = SubResource("CircleShape2D_o5yvi")
 
 [node name="Marker2D" type="Marker2D" parent="Teleporters/Teleporter2" unique_id=430021032]
 position = Vector2(16, -233)
+
+[node name="Audio" type="Node2D" parent="." unique_id=34433431]
+
+[node name="CrotchAudio" type="AudioStreamPlayer2D" parent="Audio" unique_id=720188536]
+position = Vector2(233, 2860)
+stream = SubResource("AudioStreamPlaylist_3dryh")
+volume_db = -12.0
+autoplay = true
+attenuation = 3.0314329
+
+[node name="BrainAudio" type="AudioStreamPlayer2D" parent="Audio" unique_id=1919914372]
+position = Vector2(-4, -6426)
+stream = SubResource("AudioStreamPlaylist_rku1e")
+volume_db = -12.0
+autoplay = true
+max_distance = 1500.0
+attenuation = 0.37892905
+
+[node name="Ambience" type="AudioStreamPlayer" parent="Audio" unique_id=60544856]
+stream = SubResource("AudioStreamPlaylist_rfjv2")
+volume_db = -12.0
+autoplay = true
+bus = &"Ambience"
 
 [connection signal="timeout" from="Player/Sprite2D/Timer" to="Player/Sprite2D" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Teleporters/Teleporter" to="Teleporters/Teleporter" method="_on_body_entered"]
