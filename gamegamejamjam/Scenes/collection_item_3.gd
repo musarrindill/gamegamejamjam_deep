@@ -1,5 +1,5 @@
 extends Area2D
-@export var target_zone_name: String = "lungs"
+@export var target_zone_name: String = "maze"
 var is_carried := false
 var carrier = null
 var carry_offset := Vector2.ZERO
