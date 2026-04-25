@@ -12,6 +12,8 @@
 [ext_resource type="Script" uid="uid://dphj4ehn11wyk" path="res://Scenes/Teleporter/teleporter.gd" id="10_ldgsr"]
 [ext_resource type="AudioStream" uid="uid://c7f66xfcux0wb" path="res://Music/gamejam4_tune.wav" id="10_o5yvi"]
 [ext_resource type="AudioStream" uid="uid://ond2bfrtprnl" path="res://Music/gamejam_soundscape_1.mp3" id="12_rku1e"]
+[ext_resource type="Script" uid="uid://dg6s12t3e38s6" path="res://Scenes/object.gd" id="13_1phco"]
+[ext_resource type="Texture2D" uid="uid://dmw5ft4akvi6g" path="res://Art/miscImages/inventoryobject.webp" id="14_1phco"]
 
 [sub_resource type="Gradient" id="Gradient_wowpa"]
 interpolation_mode = 1
@@ -223,6 +225,9 @@ fade_time = 0.01
 stream_count = 1
 stream_0 = ExtResource("12_rku1e")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1phco"]
+size = Vector2(64, 64)
+
 [node name="Game" type="Node2D" unique_id=1268051739]
 script = ExtResource("1_wowpa")
 
@@ -414,7 +419,7 @@ position = Vector2(-501, -1086)
 texture = ExtResource("3_h4fw4")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1674180056]
-position = Vector2(-571, -399)
+position = Vector2(-570, -398)
 script = ExtResource("2_qxrlw")
 SPEED = 500.0
 
@@ -435,7 +440,6 @@ wait_time = 0.25
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1012277471]
 zoom = Vector2(1.5, 1.5)
-position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 script = ExtResource("6_v158k")
 
@@ -500,6 +504,20 @@ stream = SubResource("AudioStreamPlaylist_rfjv2")
 volume_db = -12.0
 autoplay = true
 bus = &"Ambience"
+
+[node name="Object" type="Area2D" parent="." unique_id=380358405]
+position = Vector2(-452, -484)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("13_1phco")
+
+[node name="Sprite2D" type="Sprite2D" parent="Object" unique_id=1431445822]
+texture_filter = 1
+texture = ExtResource("14_1phco")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Object" unique_id=1342239179]
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_1phco")
+debug_color = Color(0, 0.6, 0.7019608, 0.41960785)
 
 [connection signal="timeout" from="Player/Sprite2D/Timer" to="Player/Sprite2D" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Teleporters/Teleporter" to="Teleporters/Teleporter" method="_on_body_entered"]
