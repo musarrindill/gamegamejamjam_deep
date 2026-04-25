@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://ncfir5gtg4iv" path="res://Scenes/Character/characterAnimation.gd" id="5_1l0tm"]
 [ext_resource type="Texture2D" uid="uid://cyh7j0v2xunsd" path="res://Art/demo_atlas.png" id="5_wowpa"]
 [ext_resource type="Script" uid="uid://b6pw4bni8b3qi" path="res://Scenes/Character/character_camera.gd" id="6_v158k"]
+[ext_resource type="Script" uid="uid://btwllo8yvnmtr" path="res://Scenes/ClickSpawnFunctionality/click_spawn_component.gd" id="8_nb51f"]
+[ext_resource type="PackedScene" uid="uid://4evb1n10ynxk" path="res://Scenes/Spawnable/spawnable_character.tscn" id="9_nnt18"]
 [ext_resource type="Script" uid="uid://dphj4ehn11wyk" path="res://Scenes/Teleporter/teleporter.gd" id="10_ldgsr"]
 [ext_resource type="AudioStream" uid="uid://c7f66xfcux0wb" path="res://Music/gamejam4_tune.wav" id="10_o5yvi"]
 [ext_resource type="AudioStream" uid="uid://ond2bfrtprnl" path="res://Music/gamejam_soundscape_1.mp3" id="12_rku1e"]
@@ -237,6 +239,14 @@ anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 
+[node name="Gym" type="Node2D" parent="." unique_id=772733896]
+position = Vector2(-15879, -9098)
+
+[node name="ColorRect" type="ColorRect" parent="Gym" unique_id=1417325341]
+offset_right = 2500.0
+offset_bottom = 2500.0
+color = Color(0.99609476, 0.65279955, 0.8734283, 1)
+
 [node name="Map" type="Node2D" parent="." unique_id=2040908959]
 
 [node name="ColorRect" type="ColorRect" parent="Map" unique_id=423184969]
@@ -419,7 +429,7 @@ position = Vector2(-501, -1086)
 texture = ExtResource("3_h4fw4")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1674180056]
-position = Vector2(-570, -398)
+position = Vector2(-14648, -7617)
 script = ExtResource("2_qxrlw")
 SPEED = 500.0
 
@@ -450,6 +460,11 @@ pitch_scale = 2.0
 max_polyphony = 3
 bus = &"PlayerFX"
 playback_type = 2
+
+[node name="ClickSpawnComponent" type="Node2D" parent="Player" unique_id=1776517023 node_paths=PackedStringArray("followerGroup")]
+script = ExtResource("8_nb51f")
+Spawnable = ExtResource("9_nnt18")
+followerGroup = NodePath("../../Followers")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2106523676]
 scale = Vector2(4, 4)
@@ -518,6 +533,8 @@ texture = ExtResource("14_1phco")
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_1phco")
 debug_color = Color(0, 0.6, 0.7019608, 0.41960785)
+
+[node name="Followers" type="Node2D" parent="." unique_id=2106635774]
 
 [connection signal="timeout" from="Player/Sprite2D/Timer" to="Player/Sprite2D" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Teleporters/Teleporter" to="Teleporters/Teleporter" method="_on_body_entered"]

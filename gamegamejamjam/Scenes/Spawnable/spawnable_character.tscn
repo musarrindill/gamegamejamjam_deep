@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://4evb1n10ynxk"]
+
+[ext_resource type="Script" uid="uid://dcpm6lsdmshf7" path="res://Scenes/Spawnable/Spawnable.gd" id="1_pkjp1"]
+[ext_resource type="Texture2D" uid="uid://b8xidn5y6yk5n" path="res://Art/miscCharacterAtlas.png" id="2_dwr5f"]
+[ext_resource type="Script" uid="uid://bg2rhw7efx4ms" path="res://Scenes/Spawnable/progress_bar.gd" id="3_owvpu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_owvpu"]
+atlas = ExtResource("2_dwr5f")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dwr5f"]
+radius = 25.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_owvpu"]
+bg_color = Color(0.69609565, 0.6960957, 0.6960956, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yfxt2"]
+bg_color = Color(0.53823394, 0.6641714, 0, 1)
+
+[node name="SpawnableCharacter" type="CharacterBody2D" unique_id=1308026998]
+script = ExtResource("1_pkjp1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1521845098]
+texture = SubResource("AtlasTexture_owvpu")
+hframes = 36
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2064369916]
+shape = SubResource("CircleShape2D_dwr5f")
+
+[node name="Lifetimer" type="Timer" parent="." unique_id=1199284861]
+wait_time = 60.0
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=610181273]
+custom_minimum_size = Vector2(100, 10)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -52.0
+offset_top = -49.0
+offset_right = 48.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_owvpu")
+theme_override_styles/fill = SubResource("StyleBoxFlat_yfxt2")
+value = 50.0
+show_percentage = false
+script = ExtResource("3_owvpu")
