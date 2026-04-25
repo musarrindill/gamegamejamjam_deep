@@ -772,7 +772,7 @@ position = Vector2(-501, -1086)
 texture = ExtResource("3_h4fw4")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1674180056 groups=["Player"]]
-position = Vector2(1290, -4467)
+position = Vector2(-1011, 6300)
 motion_mode = 1
 script = ExtResource("2_qxrlw")
 SPEED = 500.0
@@ -840,6 +840,36 @@ shape = SubResource("CircleShape2D_o5yvi")
 position = Vector2(16, -233)
 
 [node name="Sprite2D" type="Sprite2D" parent="Teleporters/Teleporter2" unique_id=1476213428]
+texture = SubResource("GradientTexture2D_8m3t6")
+
+[node name="Teleporter3" type="Area2D" parent="Teleporters" unique_id=133768605 node_paths=PackedStringArray("counterpart", "offset")]
+position = Vector2(-1839, 6423)
+script = ExtResource("10_ldgsr")
+counterpart = NodePath("../Teleporter4")
+offset = NodePath("Marker2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporters/Teleporter3" unique_id=1865807605]
+shape = SubResource("CircleShape2D_o5yvi")
+
+[node name="Marker2D" type="Marker2D" parent="Teleporters/Teleporter3" unique_id=1502717182]
+position = Vector2(316, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Teleporters/Teleporter3" unique_id=227706510]
+texture = SubResource("GradientTexture2D_8m3t6")
+
+[node name="Teleporter4" type="Area2D" parent="Teleporters" unique_id=22856743 node_paths=PackedStringArray("counterpart", "offset")]
+position = Vector2(1268, -3239)
+script = ExtResource("10_ldgsr")
+counterpart = NodePath("../Teleporter3")
+offset = NodePath("Marker2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporters/Teleporter4" unique_id=1388024505]
+shape = SubResource("CircleShape2D_o5yvi")
+
+[node name="Marker2D" type="Marker2D" parent="Teleporters/Teleporter4" unique_id=2049891935]
+position = Vector2(282, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Teleporters/Teleporter4" unique_id=1287641884]
 texture = SubResource("GradientTexture2D_8m3t6")
 
 [node name="Audio" type="Node2D" parent="." unique_id=34433431]
@@ -998,7 +1028,7 @@ bones/1/parent = 0
 bones/1/rest = Transform3D(1, 3.970467e-23, -3.3087225e-23, -3.970467e-23, 1, 0, 3.3087225e-23, 0, 1, 2.5642599e-23, 0.071488425, 9.313226e-10)
 bones/1/enabled = true
 bones/1/position = Vector3(2.5642599e-23, 0.071488425, 9.313226e-10)
-bones/1/rotation = Quaternion(0.026183883, 0.0035976125, 0.016591907, 0.99951303)
+bones/1/rotation = Quaternion(0.011495102, 0.0015794046, 0.007284092, 0.99990624)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "Bone.001"
 bones/2/parent = 1
@@ -1026,21 +1056,21 @@ bones/5/parent = -1
 bones/5/rest = Transform3D(0.42960322, 0.7753129, 0.46295834, 0.7662227, -0.041677438, -0.6412217, -0.47785255, 0.63020015, -0.6119675, 0.038471475, 0.1321682, 0.031305555)
 bones/5/enabled = true
 bones/5/position = Vector3(0.038471468, 0.1321682, 0.031305563)
-bones/5/rotation = Quaternion(0.72113585, 0.5478737, -0.028315779, 0.42307895)
+bones/5/rotation = Quaternion(0.7215289, 0.5401665, -0.015325917, 0.43287575)
 bones/5/scale = Vector3(0.9999996, 0.99999964, 0.99999994)
 bones/6/name = "Bone.004"
 bones/6/parent = -1
 bones/6/rest = Transform3D(0.12743768, 0.9598507, 0.24989095, -0.71014065, 0.26418778, -0.6526138, -0.69243026, -0.0942901, 0.7152968, 0.053059086, 0.20940836, -0.02012895)
 bones/6/enabled = true
 bones/6/position = Vector3(0.05305909, 0.20940836, -0.02012894)
-bones/6/rotation = Quaternion(0.1912177, 0.33710435, -0.5580617, 0.73373264)
+bones/6/rotation = Quaternion(0.19184999, 0.33010995, -0.56774163, 0.7293083)
 bones/6/scale = Vector3(0.9999999, 0.9999996, 0.9999999)
 bones/7/name = "Bone.005"
 bones/7/parent = -1
 bones/7/rest = Transform3D(0.12743782, -0.959851, 0.2498908, 0.11124729, 0.26418778, 0.9580338, -0.98558795, -0.094290055, 0.14044836, -0.057086274, 0.20940836, -0.02012895)
 bones/7/enabled = true
 bones/7/position = Vector3(-0.05708628, 0.20940837, -0.020128952)
-bones/7/rotation = Quaternion(-0.4195136, 0.50333685, 0.4243998, 0.6249361)
+bones/7/rotation = Quaternion(-0.42264822, 0.5009561, 0.42904755, 0.6215543)
 bones/7/scale = Vector3(1, 0.9999999, 0.99999994)
 
 [node name="Cube" type="MeshInstance3D" parent="UILayer/UI/SubViewportContainer/SubViewport/lopoly_babyface/Armature/Skeleton3D" unique_id=1825169739]
@@ -1126,6 +1156,8 @@ top_level = true
 [connection signal="timeout" from="Player/Sprite2D/Timer" to="Player/Sprite2D" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Teleporters/Teleporter" to="Teleporters/Teleporter" method="_on_body_entered"]
 [connection signal="body_entered" from="Teleporters/Teleporter2" to="Teleporters/Teleporter2" method="_on_body_entered"]
+[connection signal="body_entered" from="Teleporters/Teleporter3" to="Teleporters/Teleporter3" method="_on_body_entered"]
+[connection signal="body_entered" from="Teleporters/Teleporter4" to="Teleporters/Teleporter4" method="_on_body_entered"]
 [connection signal="timeout" from="UILayer/UI/SubViewportContainer/SubViewport/SwitchStateBaby" to="UILayer/UI/SubViewportContainer/SubViewport/lopoly_babyface" method="_on_switch_state_baby_timeout"]
 [connection signal="timeout" from="Spawnpoint3/SpawnTimer" to="Spawnpoint3" method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="Spawnpoint2/SpawnTimer" to="Spawnpoint2" method="_on_spawn_timer_timeout"]
