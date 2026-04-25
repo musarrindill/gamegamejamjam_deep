@@ -9,9 +9,13 @@
 [ext_resource type="Script" uid="uid://ncfir5gtg4iv" path="res://Scenes/Character/characterAnimation.gd" id="5_1l0tm"]
 [ext_resource type="Texture2D" uid="uid://cyh7j0v2xunsd" path="res://Art/demo_atlas.png" id="5_wowpa"]
 [ext_resource type="Script" uid="uid://b6pw4bni8b3qi" path="res://Scenes/Character/character_camera.gd" id="6_v158k"]
+[ext_resource type="Script" uid="uid://btwllo8yvnmtr" path="res://Scenes/ClickSpawnFunctionality/click_spawn_component.gd" id="8_nb51f"]
+[ext_resource type="PackedScene" uid="uid://4evb1n10ynxk" path="res://Scenes/Spawnable/spawnable_character.tscn" id="9_nnt18"]
 [ext_resource type="Script" uid="uid://dphj4ehn11wyk" path="res://Scenes/Teleporter/teleporter.gd" id="10_ldgsr"]
 [ext_resource type="AudioStream" uid="uid://c7f66xfcux0wb" path="res://Music/gamejam4_tune.wav" id="10_o5yvi"]
+[ext_resource type="AudioStream" uid="uid://dlbc8rn34q3ag" path="res://Music/gamejam1_tune.wav" id="12_rfjv2"]
 [ext_resource type="AudioStream" uid="uid://ond2bfrtprnl" path="res://Music/gamejam_soundscape_1.mp3" id="12_rku1e"]
+[ext_resource type="AudioStream" uid="uid://b488umlhkbu5i" path="res://Music/gamejam3_tune.wav" id="13_1phco"]
 
 [sub_resource type="Gradient" id="Gradient_wowpa"]
 interpolation_mode = 1
@@ -208,6 +212,17 @@ sources/2 = SubResource("TileSetAtlasSource_i6g32")
 [sub_resource type="CircleShape2D" id="CircleShape2D_o5yvi"]
 radius = 100.0
 
+[sub_resource type="Gradient" id="Gradient_rku1e"]
+offsets = PackedFloat32Array(0, 0.68993133)
+colors = PackedColorArray(0.97471315, 0.358219, 0.419572, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rfjv2"]
+gradient = SubResource("Gradient_rku1e")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_3dryh"]
 fade_time = 0.1
 stream_count = 1
@@ -217,6 +232,16 @@ stream_0 = ExtResource("1_3dryh")
 fade_time = 0.1
 stream_count = 1
 stream_0 = ExtResource("10_o5yvi")
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_1phco"]
+fade_time = 0.1
+stream_count = 1
+stream_0 = ExtResource("12_rfjv2")
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_nb51f"]
+fade_time = 0.1
+stream_count = 1
+stream_0 = ExtResource("13_1phco")
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_rfjv2"]
 fade_time = 0.01
@@ -292,7 +317,7 @@ polygon = PackedVector2Array(62, -1007, 206, -1025, 291, -1034, 362, -1122, 364,
 build_mode = 1
 polygon = PackedVector2Array(62, 2394, 100, 2671, 135, 3004, 103, 3021, 85, 2797, 9, 2841, 1, 2697)
 
-[node name="Sprite2D" type="Sprite2D" parent="Map" unique_id=952860987]
+[node name="LikamiSprite" type="Sprite2D" parent="Map" unique_id=952860987]
 texture = ExtResource("2_wowpa")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Map" unique_id=818397053]
@@ -413,8 +438,18 @@ shape = SubResource("SegmentShape2D_32sfa")
 position = Vector2(-501, -1086)
 texture = ExtResource("3_h4fw4")
 
+[node name="Gym" type="Node2D" parent="." unique_id=1347786496]
+
+[node name="ColorRect" type="ColorRect" parent="Gym" unique_id=812878486]
+custom_minimum_size = Vector2(2500, 2500)
+offset_left = -16166.0
+offset_top = -9225.0
+offset_right = -13666.0
+offset_bottom = -6725.0
+color = Color(0.96205086, 0.7762855, 0.9038966, 1)
+
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1674180056]
-position = Vector2(-571, -399)
+position = Vector2(-14653, -7470)
 script = ExtResource("2_qxrlw")
 SPEED = 500.0
 
@@ -447,6 +482,11 @@ max_polyphony = 3
 bus = &"PlayerFX"
 playback_type = 2
 
+[node name="ClickSpawnComponent" type="Node2D" parent="Player" unique_id=308387434 node_paths=PackedStringArray("followerGroup")]
+script = ExtResource("8_nb51f")
+Spawnable = ExtResource("9_nnt18")
+followerGroup = NodePath("../../Followers")
+
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2106523676]
 scale = Vector2(4, 4)
 tile_map_data = PackedByteArray("AAAHAAoAAgAAAAAAAAAIAAsAAgAAAAAAAAAEAAcAAgAAAAAAAAACAAkAAgAAAAAAAAA=")
@@ -466,6 +506,9 @@ shape = SubResource("CircleShape2D_o5yvi")
 [node name="Marker2D" type="Marker2D" parent="Teleporters/Teleporter" unique_id=1615344488]
 position = Vector2(-25, -231)
 
+[node name="Sprite2D" type="Sprite2D" parent="Teleporters/Teleporter" unique_id=1938573438]
+texture = SubResource("GradientTexture2D_rfjv2")
+
 [node name="Teleporter2" type="Area2D" parent="Teleporters" unique_id=2090217853 node_paths=PackedStringArray("counterpart", "offset")]
 position = Vector2(-158, -4702)
 script = ExtResource("10_ldgsr")
@@ -477,6 +520,9 @@ shape = SubResource("CircleShape2D_o5yvi")
 
 [node name="Marker2D" type="Marker2D" parent="Teleporters/Teleporter2" unique_id=430021032]
 position = Vector2(16, -233)
+
+[node name="Sprite2D" type="Sprite2D" parent="Teleporters/Teleporter2" unique_id=84630159]
+texture = SubResource("GradientTexture2D_rfjv2")
 
 [node name="Audio" type="Node2D" parent="." unique_id=34433431]
 
@@ -495,11 +541,29 @@ autoplay = true
 max_distance = 1500.0
 attenuation = 0.37892905
 
+[node name="HandAudio" type="AudioStreamPlayer2D" parent="Audio" unique_id=898866194]
+position = Vector2(-2388, 1730)
+stream = SubResource("AudioStreamPlaylist_1phco")
+volume_db = -12.0
+autoplay = true
+max_distance = 1500.0
+attenuation = 0.37892905
+
+[node name="LLegAudio" type="AudioStreamPlayer2D" parent="Audio" unique_id=1028515926]
+position = Vector2(-653, 5833)
+stream = SubResource("AudioStreamPlaylist_nb51f")
+volume_db = -12.0
+autoplay = true
+max_distance = 1500.0
+attenuation = 0.37892905
+
 [node name="Ambience" type="AudioStreamPlayer" parent="Audio" unique_id=60544856]
 stream = SubResource("AudioStreamPlaylist_rfjv2")
 volume_db = -12.0
 autoplay = true
 bus = &"Ambience"
+
+[node name="Followers" type="Node2D" parent="." unique_id=1847611730]
 
 [connection signal="timeout" from="Player/Sprite2D/Timer" to="Player/Sprite2D" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Teleporters/Teleporter" to="Teleporters/Teleporter" method="_on_body_entered"]

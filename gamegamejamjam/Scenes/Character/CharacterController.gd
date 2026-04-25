@@ -50,6 +50,6 @@ func _idle() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	direction = Input.get_vector("Left", "Right", "Up", "Down").normalized()
 	
-	if event.is_action_pressed("ui_accept"):
+	if event.is_action_pressed("Dash"):
 		_dash()
 	
