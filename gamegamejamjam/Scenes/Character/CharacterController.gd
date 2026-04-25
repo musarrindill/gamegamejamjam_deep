@@ -12,9 +12,6 @@ var state : int = 0
 var direction : Vector2
 
 func _physics_process(delta: float) -> void:
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	
 	if direction:
 		state = States.RUNNING
 	else:

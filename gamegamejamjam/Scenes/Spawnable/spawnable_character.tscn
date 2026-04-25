@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dcpm6lsdmshf7" path="res://Scenes/Spawnable/Spawnable.gd" id="1_pkjp1"]
 [ext_resource type="Texture2D" uid="uid://b8xidn5y6yk5n" path="res://Art/miscCharacterAtlas.png" id="2_dwr5f"]
 [ext_resource type="Script" uid="uid://bg2rhw7efx4ms" path="res://Scenes/Spawnable/progress_bar.gd" id="3_owvpu"]
+[ext_resource type="Script" uid="uid://cicki03mwlqam" path="res://Scenes/AttackComponent.gd" id="4_yfxt2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_owvpu"]
 atlas = ExtResource("2_dwr5f")
@@ -16,7 +17,14 @@ bg_color = Color(0.69609565, 0.6960957, 0.6960956, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yfxt2"]
 bg_color = Color(0.53823394, 0.6641714, 0, 1)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_owvpu"]
+radius = 500.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yfxt2"]
+radius = 80.0
+
 [node name="SpawnableCharacter" type="CharacterBody2D" unique_id=1308026998]
+motion_mode = 1
 script = ExtResource("1_pkjp1")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1521845098]
@@ -45,3 +53,22 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_yfxt2")
 value = 50.0
 show_percentage = false
 script = ExtResource("3_owvpu")
+
+[node name="SearchArea" type="Area2D" parent="." unique_id=1156078226]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SearchArea" unique_id=1614767077]
+shape = SubResource("CircleShape2D_owvpu")
+
+[node name="AttackComponent" type="Area2D" parent="." unique_id=510111818]
+script = ExtResource("4_yfxt2")
+metadata/_custom_type_script = "uid://cicki03mwlqam"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent" unique_id=2025891771]
+shape = SubResource("CircleShape2D_yfxt2")
+debug_color = Color(0.73599446, 0.37329784, 0.73541397, 0.41960785)
+
+[node name="Cooldown" type="Timer" parent="AttackComponent" unique_id=695491109]
+
+[connection signal="body_entered" from="SearchArea" to="." method="_on_search_area_body_entered"]
+[connection signal="area_entered" from="AttackComponent" to="AttackComponent" method="_on_area_entered"]
+[connection signal="timeout" from="AttackComponent/Cooldown" to="AttackComponent" method="_on_cooldown_timeout"]
