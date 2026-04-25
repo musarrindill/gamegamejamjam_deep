@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b605ljymsmnm8" path="res://Art/gamejammap.png" id="2_wowpa"]
 [ext_resource type="Texture2D" uid="uid://bus54jfnugoo" path="res://Art/miscImages/Jungle.jpg" id="3_h4fw4"]
 [ext_resource type="Texture2D" uid="uid://dr3pdoi1bykyx" path="res://Character/character.png" id="4_i6g32"]
-[ext_resource type="Script" uid="uid://ncfir5gtg4iv" path="res://Scenes/Character/characterAnimation.gd" id="5_1l0tm"]
+[ext_resource type="Script" path="res://Scenes/Character/characterAnimation.gd" id="5_1l0tm"]
 [ext_resource type="Texture2D" uid="uid://cyh7j0v2xunsd" path="res://Art/demo_atlas.png" id="5_wowpa"]
 [ext_resource type="Script" uid="uid://b6pw4bni8b3qi" path="res://Scenes/Character/character_camera.gd" id="6_v158k"]
 [ext_resource type="Script" uid="uid://btwllo8yvnmtr" path="res://Scenes/ClickSpawnFunctionality/click_spawn_component.gd" id="8_nb51f"]
@@ -14,8 +14,9 @@
 [ext_resource type="Script" uid="uid://dphj4ehn11wyk" path="res://Scenes/Teleporter/teleporter.gd" id="10_ldgsr"]
 [ext_resource type="AudioStream" uid="uid://c7f66xfcux0wb" path="res://Music/gamejam4_tune.wav" id="10_o5yvi"]
 [ext_resource type="AudioStream" uid="uid://ond2bfrtprnl" path="res://Music/gamejam_soundscape_1.mp3" id="12_rku1e"]
-[ext_resource type="Script" uid="uid://dg6s12t3e38s6" path="res://Scenes/object.gd" id="13_1phco"]
+[ext_resource type="Script" path="res://Scenes/object.gd" id="13_1phco"]
 [ext_resource type="Texture2D" uid="uid://dmw5ft4akvi6g" path="res://Art/miscImages/inventoryobject.webp" id="14_1phco"]
+[ext_resource type="Texture2D" uid="uid://dav1454vadd11" path="res://bumptiles.png" id="17_ewbju"]
 
 [sub_resource type="Gradient" id="Gradient_wowpa"]
 interpolation_mode = 1
@@ -229,6 +230,30 @@ stream_0 = ExtResource("12_rku1e")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1phco"]
 size = Vector2(64, 64)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_85qyi"]
+texture = ExtResource("17_ewbju")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_iivbl"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_85qyi")
 
 [node name="Game" type="Node2D" unique_id=1268051739]
 script = ExtResource("1_wowpa")
@@ -535,6 +560,19 @@ shape = SubResource("RectangleShape2D_1phco")
 debug_color = Color(0, 0.6, 0.7019608, 0.41960785)
 
 [node name="Followers" type="Node2D" parent="." unique_id=2106635774]
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1653090317]
+position = Vector2(-15879, -9098)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=1345440664]
+position = Vector2(15049, 14349.375)
+scale = Vector2(1.3186812, 1.4256624)
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=973665829]
+position = Vector2(0, -1)
+scale = Vector2(8, 8)
+tile_map_data = PackedByteArray("AAD9/wYAAAAAAAAAAAD7/wUAAAAAAAAAAAD8/wYAAAAAAAAAAAD8/wUAAAAAAAAAAAD9/wUAAAAAAAAAAAD+/wYAAAAAAAAAAAD+/wcAAAAAAAAAAAD9/wcAAAAAAAAAAAD8/wcAAAAAAAAAAAD7/wYAAAAAAAAAAAD3/wYAAAACAAAAAAD2/wYAAAACAAAAAAD2/wUAAAACAAAAAAD3/wUAAAACAAAAAAD3/wcAAAACAAAAAAD2/wgAAAACAAAAAAD2/wcAAAACAAAAAAD1/wYAAAACAAAAAAD1/wcAAAACAAAAAAD3/wgAAAACAAAAAAD4/wgAAAACAAAAAAD4/wcAAAACAAAAAAD4/wYAAAACAAAAAAD+/wIAAAABAAAAAAD+/wEAAAABAAAAAAD9/wEAAAABAAAAAAD9/wIAAAABAAAAAAD8/wIAAAABAAAAAAD7/wEAAAABAAAAAAD7/wMAAAABAAAAAAD7/wIAAAABAAAAAAAAAAIAAAABAAAAAAD//wEAAAABAAAAAAAAAAEAAAABAAAAAAABAAMAAAABAAAAAAAAAAMAAAABAAAAAAACAAIAAAABAAAAAAACAAEAAAABAAAAAAABAAIAAAABAAAAAAADAAIAAAABAAAAAAAEAAIAAAABAAAAAAABAAEAAAABAAAAAAAEAAAAAAABAAAAAAADAAAAAAABAAAAAAADAAEAAAABAAAAAAAEAAEAAAABAAAAAAD//wIAAAABAAAAAAD//wMAAAABAAAAAAD9/wAAAAABAAAAAAD9////AAABAAAAAAD+////AAABAAAAAAAAAAAAAAABAAAAAAACAP//AAABAAAAAAAAAP//AAABAAAAAAD//wAAAAABAAAAAAD8////AAABAAAAAAD8/wAAAAABAAAAAAABAAAAAAABAAAAAAACAAAAAAABAAAAAAD//wgAAAAAAAAAAAAAAAgAAAAAAAAAAAACAAcAAAAAAAAAAAADAAcAAAAAAAAAAAADAAYAAAAAAAAAAAAEAAcAAAAAAAAAAAADAAgAAAAAAAAAAAD9//f/AAADAAAAAAD9//b/AAADAAAAAAD+//b/AAADAAAAAAD+//T/AAADAAAAAAD+//X/AAADAAAAAAD9//X/AAADAAAAAAD7//f/AAADAAAAAAD8//f/AAADAAAAAAD8//b/AAADAAAAAAD9//T/AAADAAAAAAD+//j/AAADAAAAAAD+//f/AAADAAAAAAD8//j/AAADAAAAAAD9//j/AAADAAAAAAD///b/AAADAAAAAAD///X/AAADAAAAAAD///T/AAADAAAAAAD+//P/AAADAAAAAAABAPz/AAACAAAAAAACAPz/AAACAAAAAAADAPz/AAACAAAAAAABAP3/AAACAAAAAAADAP3/AAACAAAAAAACAP3/AAACAAAAAAADAPv/AAACAAAAAAD//+j/AAABAAAAAAACAOf/AAABAAAAAAD//+f/AAABAAAAAAABAOn/AAABAAAAAAAAAOn/AAABAAAAAAD//+n/AAABAAAAAAD9/+n/AAABAAAAAAACAOn/AAABAAAAAAADAOn/AAABAAAAAAD+/+j/AAABAAAAAAD8/+j/AAABAAAAAAABAOj/AAABAAAAAAA=")
+tile_set = SubResource("TileSet_iivbl")
 
 [connection signal="timeout" from="Player/Sprite2D/Timer" to="Player/Sprite2D" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Teleporters/Teleporter" to="Teleporters/Teleporter" method="_on_body_entered"]
