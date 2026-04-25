@@ -13,3 +13,6 @@ func _input(event: InputEvent) -> void:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 		else:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	
+	if event.is_action_pressed("Restart"):
+		get_tree().reload_current_scene()

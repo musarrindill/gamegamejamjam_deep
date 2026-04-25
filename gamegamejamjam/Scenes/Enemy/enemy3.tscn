@@ -1,12 +1,12 @@
-[gd_scene format=3 uid="uid://b5u85aeo6suxj"]
+[gd_scene format=3 uid="uid://cccc6ivm404ed"]
 
-[ext_resource type="Script" uid="uid://21leii6407f3" path="res://Scenes/Enemy/enemy.gd" id="1_mw074"]
-[ext_resource type="Texture2D" uid="uid://cqnidhy87hanu" path="res://Art/snek1_strip6.png" id="2_dmwl5"]
-[ext_resource type="Script" uid="uid://bg2rhw7efx4ms" path="res://Scenes/Spawnable/progress_bar.gd" id="2_nvvbs"]
-[ext_resource type="Script" uid="uid://5f8ui54wjnn3" path="res://Scenes/HitboxComponent.gd" id="3_2t2r4"]
+[ext_resource type="Script" uid="uid://21leii6407f3" path="res://Scenes/Enemy/enemy.gd" id="1_p88eb"]
+[ext_resource type="Texture2D" uid="uid://cmq6hpvk0wjht" path="res://Art/snek3_strip8.png" id="2_p88eb"]
+[ext_resource type="Script" uid="uid://bg2rhw7efx4ms" path="res://Scenes/Spawnable/progress_bar.gd" id="3_4f50e"]
+[ext_resource type="Script" uid="uid://5f8ui54wjnn3" path="res://Scenes/HitboxComponent.gd" id="4_1f5y1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d40jh"]
-atlas = ExtResource("2_dmwl5")
+atlas = ExtResource("2_p88eb")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_85qyi"]
 size = Vector2(64, 64)
@@ -23,13 +23,13 @@ bg_color = Color(0.53823394, 0.6641714, 0, 1)
 [sub_resource type="CircleShape2D" id="CircleShape2D_2t2r4"]
 radius = 100.0
 
-[node name="EnemySnake" type="CharacterBody2D" unique_id=130497674 groups=["Enemies"]]
+[node name="Enemy3" type="CharacterBody2D" unique_id=130497674 groups=["Enemies"]]
 motion_mode = 1
-script = ExtResource("1_mw074")
+script = ExtResource("1_p88eb")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1984978490]
 texture = SubResource("AtlasTexture_d40jh")
-hframes = 6
+hframes = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=978151525]
 shape = SubResource("RectangleShape2D_85qyi")
@@ -54,10 +54,10 @@ theme_override_styles/background = SubResource("StyleBoxFlat_2t2r4")
 theme_override_styles/fill = SubResource("StyleBoxFlat_dmwl5")
 value = 50.0
 show_percentage = false
-script = ExtResource("2_nvvbs")
+script = ExtResource("3_4f50e")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=2072026974]
-script = ExtResource("3_2t2r4")
+script = ExtResource("4_1f5y1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=836470924]
 shape = SubResource("CircleShape2D_2t2r4")
