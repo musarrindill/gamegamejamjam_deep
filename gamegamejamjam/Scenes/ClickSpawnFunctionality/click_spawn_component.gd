@@ -6,12 +6,15 @@ extends Node2D
 var clickedPosition: Vector2
 
 var numOfFollowers: int
+var maxFollowers: int = 5
+var availableFollowers: int
+
+func _process(delta: float) -> void:
+	numOfFollowers = followerGroup.get_child_count()
+	availableFollowers = maxFollowers - numOfFollowers
 
 func _input(event: InputEvent) -> void:
-	numOfFollowers = followerGroup.get_child_count()
-	print(numOfFollowers)
-	
-	if numOfFollowers >= 5:
+	if numOfFollowers >= maxFollowers:
 		return
 	
 	if event is InputEventMouseButton:
