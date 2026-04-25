@@ -23,6 +23,7 @@ buses/default_bus_layout="uid://bb8p6ddqg60eh"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+mouse_cursor/custom_image="uid://bdkxqaq8gk560"
 
 [global_group]
 
