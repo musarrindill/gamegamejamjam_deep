@@ -5,7 +5,7 @@ var can_flip_sprite : bool = false
 
 @onready var character_body_2d: CharacterBody2D = $".."
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if character_body_2d.velocity.normalized() == Vector2(0, 1):
 		frame = 0
 		can_flip_sprite = true

@@ -4,6 +4,7 @@ extends CharacterBody2D
 
 @onready var audio_stream_player: AudioStreamPlayer = $Footsteps
 @onready var sprite_2d: Sprite2D = $Sprite2D
+var current_zone := ""
 
 enum States{IDLE, RUNNING}
 var state : int = 0

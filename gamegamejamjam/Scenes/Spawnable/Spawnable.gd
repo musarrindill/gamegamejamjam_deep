@@ -19,7 +19,7 @@ func _ready() -> void:
 	state = States.ROAMING
 	lifetimer.start(lifetime)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	health = remap(lifetimer.time_left, 0, lifetime, 0, maxHealth)
 	if health <= 0:
 		_die()
