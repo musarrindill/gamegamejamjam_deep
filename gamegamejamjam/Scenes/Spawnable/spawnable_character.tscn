@@ -70,5 +70,6 @@ debug_color = Color(0.73599446, 0.37329784, 0.73541397, 0.41960785)
 [node name="Cooldown" type="Timer" parent="AttackComponent" unique_id=695491109]
 
 [connection signal="body_entered" from="SearchArea" to="." method="_on_search_area_body_entered"]
+[connection signal="body_exited" from="SearchArea" to="." method="_on_search_area_body_exited"]
 [connection signal="area_entered" from="AttackComponent" to="AttackComponent" method="_on_area_entered"]
 [connection signal="timeout" from="AttackComponent/Cooldown" to="AttackComponent" method="_on_cooldown_timeout"]

@@ -29,6 +29,8 @@ func _process(_delta: float) -> void:
 	
 	if targets.is_empty() == false:
 		state = States.CHASING
+	else:
+		state = States.ROAMING
 	
 	if state in [States.CHASING]:
 		_chase()
@@ -55,4 +57,9 @@ func _die() -> void:
 func _on_search_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Enemies"):
 		targets.append(body)
-		myTarget = targets.pick_random()
+		if targets.is_empty() == false:
+			myTarget = targets.pick_random()
+
+func _on_search_area_body_exited(body: Node2D) -> void:
+	if body.is_in_group("Enemies"):
+		targets.clear()

@@ -1,257 +1,11 @@
-[gd_scene format=4 uid="uid://csoc5bpeepu8e"]
+[gd_scene format=4 uid="uid://bs3gh6p0aem7y"]
 
-[ext_resource type="AudioStream" uid="uid://cuqpjirr4xy10" path="res://Music/gamejam2_tune.wav" id="1_3dryh"]
-[ext_resource type="Script" uid="uid://b8jygcgtjkweb" path="res://Scenes/GameManager1.gd" id="1_wowpa"]
-[ext_resource type="Script" uid="uid://darc5efosilg1" path="res://Scenes/Character/CharacterController.gd" id="2_qxrlw"]
-[ext_resource type="Texture2D" uid="uid://b605ljymsmnm8" path="res://Art/gamejammap.png" id="2_wowpa"]
-[ext_resource type="Texture2D" uid="uid://bus54jfnugoo" path="res://Art/miscImages/Jungle.jpg" id="3_h4fw4"]
-[ext_resource type="Texture2D" uid="uid://dr3pdoi1bykyx" path="res://Character/character.png" id="4_i6g32"]
-[ext_resource type="Script" uid="uid://ncfir5gtg4iv" path="res://Scenes/Character/characterAnimation.gd" id="5_1l0tm"]
-[ext_resource type="Script" uid="uid://b6pw4bni8b3qi" path="res://Scenes/Character/character_camera.gd" id="6_v158k"]
-[ext_resource type="Script" uid="uid://btwllo8yvnmtr" path="res://Scenes/ClickSpawnFunctionality/click_spawn_component.gd" id="8_nb51f"]
-[ext_resource type="PackedScene" uid="uid://4evb1n10ynxk" path="res://Scenes/Spawnable/spawnable_character.tscn" id="9_nnt18"]
-[ext_resource type="Script" uid="uid://dphj4ehn11wyk" path="res://Scenes/Teleporter/teleporter.gd" id="10_ldgsr"]
-[ext_resource type="AudioStream" uid="uid://c7f66xfcux0wb" path="res://Music/gamejam4_tune.wav" id="10_o5yvi"]
-[ext_resource type="AudioStream" uid="uid://ond2bfrtprnl" path="res://Music/gamejam_soundscape_1.mp3" id="12_rku1e"]
-[ext_resource type="Script" uid="uid://dg6s12t3e38s6" path="res://Scenes/object.gd" id="13_1phco"]
-[ext_resource type="Script" path="res://Scenes/collection_item_1.gd" id="15_7t8sx"]
-[ext_resource type="Texture2D" uid="uid://dhp5vs4evcjys" path="res://Art/miscImages/collect1.webp" id="16_85qyi"]
-[ext_resource type="Texture2D" uid="uid://mr1t7vb3a53" path="res://Art/miscImages/collect2.webp" id="16_iivbl"]
-[ext_resource type="PackedScene" uid="uid://b5u85aeo6suxj" path="res://Scenes/Enemy/enemy.tscn" id="17_85qyi"]
-[ext_resource type="Script" uid="uid://ctlisqrmsi3b7" path="res://Scenes/UI/available_spawns.gd" id="17_ewbju"]
-[ext_resource type="Texture2D" uid="uid://7wiadaofchdw" path="res://Art/miscImages/collect3.webp" id="17_iivbl"]
-[ext_resource type="Script" path="res://Scenes/collection_item_2.gd" id="17_mg4q0"]
-[ext_resource type="Texture2D" uid="uid://5l0qo77wwhig" path="res://Art/miscImages/collect4.webp" id="18_7nbq1"]
-[ext_resource type="Script" path="res://Scenes/collection_item_3.gd" id="19_vm72l"]
-[ext_resource type="Script" path="res://Scenes/lungarea.gd" id="20_7nbq1"]
-[ext_resource type="Script" path="res://Scenes/brainarea.gd" id="21_exi56"]
-[ext_resource type="Script" path="res://Scenes/reainforest.gd" id="25_22asu"]
-[ext_resource type="Script" path="res://Scenes/maze.gd" id="26_fkdbe"]
-[ext_resource type="Texture2D" uid="uid://b5ka7jgssqhhi" path="res://3d/lopoly_babyface_babyTex.png" id="27_8m3t6"]
-[ext_resource type="Script" uid="uid://rfnvvq65r7mh" path="res://Scenes/lopoly_babyface.gd" id="27_ese38"]
-[ext_resource type="Script" uid="uid://c8m2vhrgwlurx" path="res://Scenes/spawnpoint.gd" id="28_tgy6u"]
-[ext_resource type="PackedScene" uid="uid://trwww3g7b2i" path="res://Scenes/Enemy/enemy2.tscn" id="29_cwurv"]
-[ext_resource type="PackedScene" uid="uid://cccc6ivm404ed" path="res://Scenes/Enemy/enemy3.tscn" id="30_mucmn"]
-
-[sub_resource type="Gradient" id="Gradient_wowpa"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0.51373, 0.6784897)
-colors = PackedColorArray(0.80761987, 0.74235296, 0.10353815, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_i6g32"]
-gradient = SubResource("Gradient_wowpa")
-width = 1000
-height = 1000
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_rku1e"]
-a = Vector2(-51, -110)
-b = Vector2(-1087, -102)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_rfjv2"]
-a = Vector2(-51, -110)
-b = Vector2(-51, -243)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_1phco"]
-a = Vector2(-518, -315)
-b = Vector2(-196, -314)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_nb51f"]
-a = Vector2(-1087, -98)
-b = Vector2(-1097, 37)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_nnt18"]
-a = Vector2(-475, 50)
-b = Vector2(-1097, 37)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_ewbju"]
-a = Vector2(-475, 50)
-b = Vector2(-471, 609)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_85qyi"]
-a = Vector2(-621, 221)
-b = Vector2(-624, 843)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_iivbl"]
-a = Vector2(-621, 221)
-b = Vector2(-1106, 208)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_7nbq1"]
-a = Vector2(-1128, 644)
-b = Vector2(-1106, 208)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_exi56"]
-a = Vector2(-1128, 644)
-b = Vector2(-869, 651)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_7t8sx"]
-a = Vector2(-862, 411)
-b = Vector2(-869, 651)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_mg4q0"]
-a = Vector2(-295, 33)
-b = Vector2(-303, 825)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_vm72l"]
-a = Vector2(-3, 693)
-b = Vector2(-304, 685)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_22asu"]
-a = Vector2(-152, 524)
-b = Vector2(-157, 20)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_fkdbe"]
-a = Vector2(-152, 524)
-b = Vector2(277, 529)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_81klo"]
-a = Vector2(302, 884)
-b = Vector2(283, 383)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_tgy6u"]
-a = Vector2(135, 190)
-b = Vector2(-148, 183)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_cwurv"]
-a = Vector2(135, 190)
-b = Vector2(149, 90)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_mucmn"]
-a = Vector2(258, 91)
-b = Vector2(149, 90)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_8m3t6"]
-a = Vector2(258, 91)
-b = Vector2(266, 232)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_ese38"]
-a = Vector2(590, 233)
-b = Vector2(266, 232)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_oeip8"]
-a = Vector2(464, 235)
-b = Vector2(467, 671)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_xe308"]
-a = Vector2(1136, 670)
-b = Vector2(467, 671)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_d3cha"]
-a = Vector2(1136, 670)
-b = Vector2(1132, -2)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_i26dy"]
-a = Vector2(962, 521)
-b = Vector2(964, -77)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_lmoi6"]
-a = Vector2(962, 521)
-b = Vector2(671, 522)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_6uxt2"]
-a = Vector2(680, 336)
-b = Vector2(671, 522)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_ym3tv"]
-a = Vector2(680, 336)
-b = Vector2(839, 338)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_bwj6o"]
-a = Vector2(837, 72)
-b = Vector2(839, 338)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_f3c8l"]
-a = Vector2(837, 72)
-b = Vector2(621, 76)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_bu0y5"]
-a = Vector2(962, -72)
-b = Vector2(473, -65)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_6a4tp"]
-a = Vector2(476, 39)
-b = Vector2(473, -65)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_631el"]
-a = Vector2(476, 39)
-b = Vector2(401, 38)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_vs120"]
-a = Vector2(403, -48)
-b = Vector2(401, 38)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_v2cs8"]
-a = Vector2(403, -48)
-b = Vector2(72, -53)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_32sfa"]
-a = Vector2(-51, -107)
-b = Vector2(72, -53)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebmjs"]
-size = Vector2(64, 64)
-
-[sub_resource type="Gradient" id="Gradient_1l0tm"]
-offsets = PackedFloat32Array(0.08581236, 0.6693364)
-colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_v158k"]
-gradient = SubResource("Gradient_1l0tm")
-width = 128
-height = 32
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wowpa"]
-atlas = ExtResource("4_i6g32")
-
-[sub_resource type="AudioStreamMP3" id="AudioStreamMP3_wowpa"]
-data = PackedByteArray("//vkRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpMQU1FMy4xMDCqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq//vkZAAP8AAAaQAAAAgAAA0gAAABAAABpAAAACAAADSAAAAETEFNRTMuMTAwqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpMQU1FMy4xMDCqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq//vkZAAP8AAAaQAAAAgAAA0gAAABAAABpAAAACAAADSAAAAETEFNRTMuMTAwqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpMQU1FMy4xMDCqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq//vkZAAP8AAAaQAAAAgAAA0gAAABAAABpAAAACAAADSAAAAETEFNRTMuMTAwqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpMQU1FMy4xMDCqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq//vkZAAP8AAAaQAAAAgAAA0gAAABAAABpAAAACAAADSAAAAETEFNRTMuMTAwqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpMQU1FMy4xMDCqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq//vkZAAP8AAAaQAAAAgAAA0gAAABAAABpAAAACAAADSAAAAETEFNRTMuMTAwqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpMQU1FMy4xMDCqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq//vkZAAP8AAAaQAAAAgAAA0gAAABAAABpAAAACAAADSAAAAETEFNRTMuMTAwqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpMQU1FMy4xMDCqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq//vkZAAP8AAAaQAAAAgAAA0gAAABAAABpAAAACAAADSAAAAETEFNRTMuMTAwqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpMQU1FMy4xMDCqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq//vkZAAP8AAAaQAAAAgAAA0gAAABAAABpAAAACAAADSAAAAETEFNRTMuMTAwqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpMQU1FMy4xMDCqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq//vkZAAP8AAAaQAAAAgAAA0gAAABAAABpAAAACAAADSAAAAETEFNRTMuMTAwqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpMQU1FMy4xMDCqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq//vkZAAP8AAAaQAAAAgAAA0gAAABAAABpAAAACAAADSAAAAETEFNRTMuMTAwqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpMQU1FMy4xMDCqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq")
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1l0tm"]
-playback_mode = 1
-random_pitch = 1.0293022
-random_volume_offset_db = 6.0
-streams_count = 1
-stream_0/stream = SubResource("AudioStreamMP3_wowpa")
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_o5yvi"]
-radius = 100.0
-
-[sub_resource type="Gradient" id="Gradient_mucmn"]
-offsets = PackedFloat32Array(0.18448275, 0.7155172)
-colors = PackedColorArray(0.9677587, 0.6145685, 0.53480256, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_8m3t6"]
-gradient = SubResource("Gradient_mucmn")
-width = 128
-height = 128
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-
-[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_3dryh"]
-fade_time = 0.1
-stream_count = 1
-stream_0 = ExtResource("1_3dryh")
-
-[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_rku1e"]
-fade_time = 0.1
-stream_count = 1
-stream_0 = ExtResource("10_o5yvi")
-
-[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_rfjv2"]
-fade_time = 0.01
-stream_count = 1
-stream_0 = ExtResource("12_rku1e")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1phco"]
-size = Vector2(64, 64)
+[ext_resource type="Texture2D" uid="uid://b5ka7jgssqhhi" path="res://3d/lopoly_babyface_babyTex.png" id="1_kmwlu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pd6oq"]
 resource_name = "Material.001"
 cull_mode = 2
-albedo_texture = ExtResource("27_8m3t6")
+albedo_texture = ExtResource("1_kmwlu")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_clge1"]
 resource_name = "lopoly_babyface_Cube_001"
@@ -393,6 +147,7 @@ tracks/11/keys = PackedFloat32Array(0, 1, -0.4250887, 0.49907458, 0.4326727, 0.6
 [sub_resource type="Animation" id="Animation_lvfjg"]
 resource_name = "Action_001"
 length = 1.3333334
+loop_mode = 1
 tracks/0/type = "position_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -481,6 +236,7 @@ tracks/11/keys = PackedFloat32Array(0, 1, -0.4250887, 0.49907458, 0.4326727, 0.6
 [sub_resource type="Animation" id="Animation_m15uo"]
 resource_name = "Action_002"
 length = 1.3333334
+loop_mode = 1
 tracks/0/type = "position_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -573,419 +329,14 @@ _data = {
 &"Action_002": SubResource("Animation_m15uo")
 }
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nnt18"]
-bg_color = Color(0.8235294, 0.8235294, 0.8235294, 0.60784316)
+[node name="LowpolyBaby" type="Node3D" unique_id=1078402990]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ewbju"]
-bg_color = Color(0, 0.7603484, 0.5917252, 1)
+[node name="lopoly_babyface" type="Node3D" parent="." unique_id=774912638]
 
-[node name="Game" type="Node2D" unique_id=1268051739]
-script = ExtResource("1_wowpa")
-
-[node name="Gym" type="Node2D" parent="." unique_id=772733896]
-position = Vector2(-15879, -9098)
-
-[node name="ColorRect" type="ColorRect" parent="Gym" unique_id=1417325341]
-offset_right = 2500.0
-offset_bottom = 2500.0
-color = Color(0.99609476, 0.65279955, 0.8734283, 1)
-
-[node name="Map" type="Node2D" parent="." unique_id=2040908959]
-
-[node name="ColorRect" type="ColorRect" parent="Map" unique_id=423184969]
-offset_left = -9809.0
-offset_top = -11158.0
-offset_right = 10311.0
-offset_bottom = 11217.0
-
-[node name="utlina" type="StaticBody2D" parent="Map" unique_id=1508186478]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/utlina" unique_id=980021477]
-rotation = -0.0013373541
-build_mode = 1
-polygon = PackedVector2Array(919, -3459, 816, -3543, 891, -3727, 1234, -3793, 1309, -3864, 1372, -4052, 1500, -4211, 1581, -4292, 1540, -4401, 1419, -4407, 1456, -4522, 1537, -4554, 1571, -4682, 1447, -4760, 1456, -4844, 1593, -4859, 1628, -4978, 1453, -5325, 1400, -5437, 1431, -5621, 1325, -6093, 1172, -6352, 672, -6646, 200, -6730, -430, -6593, -861, -6328, -1151, -5788, -1173, -5173, -936, -4801, -655, -4492, -614, -4115, -674, -3728, -793, -3635, -1523, -3375, -1888, -3057, -2163, -2414, -2231, -1482, -2334, -496, -2403, -168, -2400, 1183, -2625, 1324, -2903, 1492, -3199, 1586, -3268, 1751, -3169, 1811, -2992, 1798, -2820, 1751, -2807, 1879, -2935, 2304, -3048, 2625, -3032, 2713, -2879, 2710, -2776, 2563, -2611, 2107, -2626, 2588, -2679, 2828, -2658, 3003, -2514, 3000, -2439, 2884, -2292, 2223, -2267, 2351, -2299, 2716, -2274, 2906, -2167, 2956, -2077, 2781, -1999, 2279, -1952, 2794, -1893, 2881, -1821, 2803, -1799, 2191, -1771, 1561, -1827, 1289, -1896, 1158, -1765, 488, -1666, -193, -1600, -405, -1525, -614, -1506, -895, -1441, -848, -1425, -268, -1436, 1126, -1438, 2097, -1435, 2422, -1309, 2991, -1300, 3425, -1212, 3772, -1139, 4955, -1107, 5998, -1198, 6120, -1413, 6226, -1682, 6304, -1956, 6304, -2016, 6413, -1950, 6538, -1738, 6553, -1510, 6594, -471, 6522, -190, 6547, -77, 6425, -149, 5998, -18, 5327, 63, 5030, 38, 4360, -34, 3876, -25, 3176, 162, 3023, 315, 3014, 402, 2755, 430, 2642, 493, 2854, 577, 3700, 841, 5124, 1013, 6070, 1144, 6173, 1203, 6422, 1300, 6422, 1303, 6132, 1431, 6060, 1517, 4678, 1501, 4229, 1535, 3243, 1588, 2955, 1588, 1987, 1476, 1346, 1415, 157, 1530, -68, 1659, -1085, 1818, -123, 2046, 1419, 2233, 1582, 2427, 2617, 2434, 3041, 2572, 4202, 2747, 6427, 2853, 6440, 2900, 5775, 3009, 5737, 3072, 5413, 3153, 4564, 3163, 2323, 3082, 1923, 2787, 1511, 2590, 1330, 2640, 1068, 2615, 837, 2658, 139, 2653, -219, 2543, -826, 2496, -1481, 2407, -2712, 2031, -3265, 1619, -3430, 1148, -3427)
-
-[node name="heili" type="StaticBody2D" parent="Map" unique_id=660758993]
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Map/heili" unique_id=1444493570]
-build_mode = 1
-polygon = PackedVector2Array(-165, -4598, -86, -4642, 1, -4946, 91, -5047, 222, -5280, 439, -5351, 830, -5339, 1097, -5390, 1222, -5487, 1272, -5678, 1268, -6035, 1028, -6371, 563, -6555, 305, -6617, -68, -6594, -501, -6458, -819, -6235, -1003, -5963, -1099, -5694, -1099, -5392, -1012, -5139, -770, -4911, -602, -4793, -404, -4752, -247, -4802, -238, -4625)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/heili" unique_id=999795897]
-position = Vector2(0, -1)
-build_mode = 1
-polygon = PackedVector2Array(-519, -5534, -314, -5554, -248, -5534, -197, -5431, -196, -5215, -204, -5164, -244, -5140, -239, -5064, -264, -5000, -322, -4962, -404, -4967, -556, -4989, -663, -5062, -731, -5193, -751, -5265, -762, -5369, -716, -5454, -674, -5462, -570, -5524)
-
-[node name="inni" type="StaticBody2D" parent="Map" unique_id=1473957558]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/inni" unique_id=110366182]
-build_mode = 1
-polygon = PackedVector2Array(-2186, -1644, -2138, -1730, -2037, -1730, -2004, -1586, -1898, -1337, -1774, -1282, -1573, -1297, -1494, -1467, -1427, -1459, -1294, -1310, -1148, -1268, -981, -1484, -657, -1586, -709, -1711, -1021, -1704, -1248, -1819, -1297, -2022, -1283, -2337, -1023, -2916, -743, -3301, -505, -3633, -376, -3675, -243, -3664, -145, -3570, -61, -3133, -29, -3094, 16, -3140, 34, -3318, 13, -3566, 65, -3949, 58, -4236, 69, -4586, 135, -4751, 223, -4880, 328, -4947, 482, -4926, 447, -4768, 408, -4593, 408, -4502, 447, -4523, 534, -4646, 706, -4684, 923, -4660, 1066, -4586, 1196, -4555, 1259, -4628, 1318, -4586, 1346, -4534, 1483, -4523, 1395, -4836, 811, -5109, 286, -5137, 114, -5004, -64, -4601, -329, -4207, -689, -3608, -1545, -3255, -2112, -2048)
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Map/inni" unique_id=1878384710]
-build_mode = 1
-polygon = PackedVector2Array(-2059, 22, -1926, 48, -1904, 109, -1965, 482, -2041, 755, -2102, 857, -2181, 849, -2185, 661, -2220, 502, -2218, 268, -2157, 94)
-
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Map/inni" unique_id=1201421070]
-build_mode = 1
-polygon = PackedVector2Array(1436, -4409, 1289, -4377, 1248, -4086, 1159, -3936, 896, -3872, 671, -3887, 553, -3948, 521, -3841, 438, -3870, 389, -3999, 337, -3748, 290, -3627, 253, -3128, 296, -3128, 380, -3474, 490, -3642, 608, -3673, 715, -3621, 781, -3489, 896, -3307, 1073, -3178, 1292, -2681, 1431, -2367, 1477, -1951, 1428, -1848, 1024, -1721, 758, -1709, 395, -1905, 228, -2188, 222, -2569, 254, -2849, 254, -2964, 153, -3010, 14, -2930, 14, -2586, 0, -2234, -75, -1937, -205, -1799, -549, -1709, -520, -1617, -173, -1700, 132, -1749, 398, -1738, 559, -1700, 608, -1597, 510, -1421, 556, -1403, 683, -1432, 886, -1426, 1022, -1261, 1074, -1051, 1074, -941, 1160, -1120, 1293, -1143, 1388, -1045, 1400, -690, 1348, -563, 1206, -462, 1024, -433, 1013, -306, 621, -251, 583, -309, 534, -309, 471, -205, 1301, -127, 1338, -37, 1330, 197, 1425, 203, 1514, -25, 1610, -868, 1650, -1090, 1767, 1318, 2205, 6789, 3353, 6605, 3391, 1079, 2794, -1198, 2396, -2719, 2031, -3265, 1538, -3424, 1012, -3424, 836, -3519, 900, -3726, 1093, -3755, 1281, -3830, 1359, -3946, 1373, -4079, 1535, -4226, 1581, -4315, 1536, -4394)
-
-[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Map/inni" unique_id=165826699]
-build_mode = 1
-polygon = PackedVector2Array(-1474, -860, -1376, -832, -1295, -982, -1278, -1068, -1209, -1052, -1262, -795, -1209, -502, -1095, -356, -973, -360, -835, -396, -615, -645, -480, -704, -454, -659, -587, -569, -708, -430, -743, -290, -1300, -247, -1317, 857, 13, 848, 7, 1217, 61, 1447, 104, 1568, 64, 1750, 54, 1893, -50, 1864, -228, 1450, -384, 1258, -668, 1104, -1149, 1009, -1239, 1113, -1334, 1278, -1330, 1690, -1194, 1960, -1064, 2001, -886, 2176, -412, 2240, -168, 2295, -159, 2409, -244, 2480, -668, 2629, -875, 2705, -1157, 2667, -1256, 2610, -1367, 2679, -1440, 2392, -1441, -262)
-
-[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Map/inni" unique_id=714086927]
-build_mode = 1
-polygon = PackedVector2Array(-135, -456, -233, -334, -21, -242, 353, -215, 556, -183, 1308, -145, 1333, 37, 1316, 875, 297, 879, 268, 1022, 296, 1440, 278, 1715, 324, 1793, 370, 2291, 424, 2151, 396, 1924, 685, 1506, 763, 1354, 966, 1231, 1135, 1239, 1235, 1488, 1313, 1829, 1303, 2054, 1098, 2281, 817, 2413, 566, 2590, 593, 2628, 789, 2476, 1082, 2341, 1303, 2116, 1340, 1857, 1282, 1530, 1174, 1255, 980, 1190, 721, 1355, 499, 1742, 364, 1905, 326, 1710, 314, 891, 1448, 901, 1426, 186, 1539, -226, 1005, -300, 630, -252, 597, -326, 61, -334)
-
-[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Map/inni" unique_id=1274987672]
-build_mode = 1
-polygon = PackedVector2Array(854, 3687, 992, 3711, 1059, 3718, 1171, 3669, 1280, 3692, 1379, 3833, 1379, 3981, 1319, 4121, 1143, 4282, 1018, 4274, 810, 4084, 815, 3872)
-
-[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Map/inni" unique_id=23952866]
-build_mode = 1
-polygon = PackedVector2Array(62, -1007, 206, -1025, 291, -1034, 362, -1122, 364, -1271, 316, -1305, 243, -1173, 116, -1093)
-
-[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="Map/inni" unique_id=1601073866]
-build_mode = 1
-polygon = PackedVector2Array(62, 2394, 100, 2671, 135, 3004, 103, 3021, 85, 2797, 9, 2841, 1, 2697)
-
-[node name="Sprite2D" type="Sprite2D" parent="Map" unique_id=952860987]
-texture = ExtResource("2_wowpa")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Map" unique_id=818397053]
-position = Vector2(807, -2352)
-texture = SubResource("GradientTexture2D_i6g32")
-
-[node name="maze" type="StaticBody2D" parent="Map" unique_id=1223185294]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/maze" unique_id=875715177]
-shape = SubResource("SegmentShape2D_rku1e")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Map/maze" unique_id=1528313227]
-shape = SubResource("SegmentShape2D_rfjv2")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Map/maze" unique_id=1638914065]
-shape = SubResource("SegmentShape2D_1phco")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Map/maze" unique_id=1434081120]
-shape = SubResource("SegmentShape2D_nb51f")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="Map/maze" unique_id=975221390]
-shape = SubResource("SegmentShape2D_nnt18")
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="Map/maze" unique_id=1209148105]
-shape = SubResource("SegmentShape2D_ewbju")
-
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="Map/maze" unique_id=1740158393]
-shape = SubResource("SegmentShape2D_85qyi")
-
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="Map/maze" unique_id=447521300]
-shape = SubResource("SegmentShape2D_iivbl")
-
-[node name="CollisionShape2D9" type="CollisionShape2D" parent="Map/maze" unique_id=1960703464]
-shape = SubResource("SegmentShape2D_7nbq1")
-
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="Map/maze" unique_id=1984247645]
-shape = SubResource("SegmentShape2D_exi56")
-
-[node name="CollisionShape2D11" type="CollisionShape2D" parent="Map/maze" unique_id=944818297]
-shape = SubResource("SegmentShape2D_7t8sx")
-
-[node name="CollisionShape2D12" type="CollisionShape2D" parent="Map/maze" unique_id=938531255]
-shape = SubResource("SegmentShape2D_mg4q0")
-
-[node name="CollisionShape2D13" type="CollisionShape2D" parent="Map/maze" unique_id=312232840]
-shape = SubResource("SegmentShape2D_vm72l")
-
-[node name="CollisionShape2D14" type="CollisionShape2D" parent="Map/maze" unique_id=1235963645]
-shape = SubResource("SegmentShape2D_22asu")
-
-[node name="CollisionShape2D15" type="CollisionShape2D" parent="Map/maze" unique_id=38369267]
-shape = SubResource("SegmentShape2D_fkdbe")
-
-[node name="CollisionShape2D16" type="CollisionShape2D" parent="Map/maze" unique_id=823287559]
-shape = SubResource("SegmentShape2D_81klo")
-
-[node name="CollisionShape2D17" type="CollisionShape2D" parent="Map/maze" unique_id=1558387920]
-shape = SubResource("SegmentShape2D_tgy6u")
-
-[node name="CollisionShape2D18" type="CollisionShape2D" parent="Map/maze" unique_id=223517008]
-shape = SubResource("SegmentShape2D_cwurv")
-
-[node name="CollisionShape2D19" type="CollisionShape2D" parent="Map/maze" unique_id=1426742113]
-shape = SubResource("SegmentShape2D_mucmn")
-
-[node name="CollisionShape2D20" type="CollisionShape2D" parent="Map/maze" unique_id=1033251758]
-shape = SubResource("SegmentShape2D_8m3t6")
-
-[node name="CollisionShape2D21" type="CollisionShape2D" parent="Map/maze" unique_id=1168638487]
-shape = SubResource("SegmentShape2D_ese38")
-
-[node name="CollisionShape2D22" type="CollisionShape2D" parent="Map/maze" unique_id=584365051]
-shape = SubResource("SegmentShape2D_oeip8")
-
-[node name="CollisionShape2D23" type="CollisionShape2D" parent="Map/maze" unique_id=752492232]
-shape = SubResource("SegmentShape2D_xe308")
-
-[node name="CollisionShape2D24" type="CollisionShape2D" parent="Map/maze" unique_id=1367219974]
-shape = SubResource("SegmentShape2D_d3cha")
-
-[node name="CollisionShape2D25" type="CollisionShape2D" parent="Map/maze" unique_id=425668587]
-shape = SubResource("SegmentShape2D_i26dy")
-
-[node name="CollisionShape2D26" type="CollisionShape2D" parent="Map/maze" unique_id=953097561]
-shape = SubResource("SegmentShape2D_lmoi6")
-
-[node name="CollisionShape2D27" type="CollisionShape2D" parent="Map/maze" unique_id=632084081]
-shape = SubResource("SegmentShape2D_6uxt2")
-
-[node name="CollisionShape2D28" type="CollisionShape2D" parent="Map/maze" unique_id=1128155955]
-shape = SubResource("SegmentShape2D_ym3tv")
-
-[node name="CollisionShape2D29" type="CollisionShape2D" parent="Map/maze" unique_id=1132175712]
-shape = SubResource("SegmentShape2D_bwj6o")
-
-[node name="CollisionShape2D30" type="CollisionShape2D" parent="Map/maze" unique_id=48442253]
-shape = SubResource("SegmentShape2D_f3c8l")
-
-[node name="CollisionShape2D31" type="CollisionShape2D" parent="Map/maze" unique_id=890832612]
-shape = SubResource("SegmentShape2D_bu0y5")
-
-[node name="CollisionShape2D32" type="CollisionShape2D" parent="Map/maze" unique_id=354351454]
-shape = SubResource("SegmentShape2D_6a4tp")
-
-[node name="CollisionShape2D33" type="CollisionShape2D" parent="Map/maze" unique_id=2109822449]
-shape = SubResource("SegmentShape2D_631el")
-
-[node name="CollisionShape2D34" type="CollisionShape2D" parent="Map/maze" unique_id=503288376]
-shape = SubResource("SegmentShape2D_vs120")
-
-[node name="CollisionShape2D35" type="CollisionShape2D" parent="Map/maze" unique_id=1637192230]
-shape = SubResource("SegmentShape2D_v2cs8")
-
-[node name="CollisionShape2D36" type="CollisionShape2D" parent="Map/maze" unique_id=2105955072]
-shape = SubResource("SegmentShape2D_32sfa")
-
-[node name="Jungle" type="Sprite2D" parent="Map" unique_id=230001158]
-position = Vector2(-501, -1086)
-texture = ExtResource("3_h4fw4")
-
-[node name="Player" type="CharacterBody2D" parent="." unique_id=1674180056 groups=["Player"]]
-position = Vector2(1290, -4467)
-motion_mode = 1
-script = ExtResource("2_qxrlw")
-SPEED = 500.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=504895108]
-shape = SubResource("RectangleShape2D_ebmjs")
-
-[node name="shadowSprite" type="Sprite2D" parent="Player" unique_id=987313233]
-position = Vector2(0, 29)
-texture = SubResource("GradientTexture2D_v158k")
-
-[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=385349580]
-texture = SubResource("AtlasTexture_wowpa")
-hframes = 3
-script = ExtResource("5_1l0tm")
-
-[node name="Timer" type="Timer" parent="Player/Sprite2D" unique_id=921201483]
-wait_time = 0.25
-
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1012277471]
-zoom = Vector2(1.5, 1.5)
-position_smoothing_speed = 10.0
-script = ExtResource("6_v158k")
-
-[node name="Footsteps" type="AudioStreamPlayer" parent="Player" unique_id=134937160]
-stream = SubResource("AudioStreamRandomizer_1l0tm")
-volume_db = -12.0
-pitch_scale = 2.0
-max_polyphony = 3
-bus = &"PlayerFX"
-playback_type = 2
-
-[node name="ClickSpawnComponent" type="Node2D" parent="Player" unique_id=1776517023 node_paths=PackedStringArray("followerGroup")]
-script = ExtResource("8_nb51f")
-Spawnable = ExtResource("9_nnt18")
-followerGroup = NodePath("../../Followers")
-
-[node name="Teleporters" type="Node2D" parent="." unique_id=428377364]
-
-[node name="Teleporter" type="Area2D" parent="Teleporters" unique_id=1081454921 node_paths=PackedStringArray("counterpart", "offset")]
-position = Vector2(1246, 6347)
-script = ExtResource("10_ldgsr")
-counterpart = NodePath("../Teleporter2")
-offset = NodePath("Marker2D")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporters/Teleporter" unique_id=1416337000]
-shape = SubResource("CircleShape2D_o5yvi")
-
-[node name="Marker2D" type="Marker2D" parent="Teleporters/Teleporter" unique_id=1615344488]
-position = Vector2(-25, -231)
-
-[node name="Sprite2D" type="Sprite2D" parent="Teleporters/Teleporter" unique_id=2005007176]
-texture = SubResource("GradientTexture2D_8m3t6")
-
-[node name="Teleporter2" type="Area2D" parent="Teleporters" unique_id=2090217853 node_paths=PackedStringArray("counterpart", "offset")]
-position = Vector2(-158, -4702)
-script = ExtResource("10_ldgsr")
-counterpart = NodePath("../Teleporter")
-offset = NodePath("Marker2D")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporters/Teleporter2" unique_id=2102133153]
-shape = SubResource("CircleShape2D_o5yvi")
-
-[node name="Marker2D" type="Marker2D" parent="Teleporters/Teleporter2" unique_id=430021032]
-position = Vector2(16, -233)
-
-[node name="Sprite2D" type="Sprite2D" parent="Teleporters/Teleporter2" unique_id=1476213428]
-texture = SubResource("GradientTexture2D_8m3t6")
-
-[node name="Audio" type="Node2D" parent="." unique_id=34433431]
-
-[node name="CrotchAudio" type="AudioStreamPlayer2D" parent="Audio" unique_id=720188536]
-position = Vector2(233, 2860)
-stream = SubResource("AudioStreamPlaylist_3dryh")
-volume_db = -12.0
-autoplay = true
-attenuation = 3.0314329
-
-[node name="BrainAudio" type="AudioStreamPlayer2D" parent="Audio" unique_id=1919914372]
-position = Vector2(-4, -6426)
-stream = SubResource("AudioStreamPlaylist_rku1e")
-volume_db = -12.0
-autoplay = true
-max_distance = 1500.0
-attenuation = 0.37892905
-
-[node name="Ambience" type="AudioStreamPlayer" parent="Audio" unique_id=60544856]
-stream = SubResource("AudioStreamPlaylist_rfjv2")
-volume_db = -12.0
-autoplay = true
-bus = &"Ambience"
-
-[node name="collectionItem1" type="Area2D" parent="." unique_id=380358405]
-position = Vector2(-256, -630)
-scale = Vector2(0.5, 0.5)
-script = ExtResource("15_7t8sx")
-
-[node name="Sprite2D" type="Sprite2D" parent="collectionItem1" unique_id=1431445822]
-texture_filter = 1
-texture = ExtResource("16_iivbl")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="collectionItem1" unique_id=1342239179]
-scale = Vector2(0.99999976, 0.99999976)
-shape = SubResource("RectangleShape2D_1phco")
-debug_color = Color(0, 0.6, 0.7019608, 0.41960785)
-
-[node name="Followers" type="Node2D" parent="." unique_id=2106635774]
-
-[node name="collectionItem2" type="Area2D" parent="." unique_id=1411431683]
-position = Vector2(-10, -527)
-scale = Vector2(0.5, 0.5)
-script = ExtResource("17_mg4q0")
-
-[node name="Sprite2D" type="Sprite2D" parent="collectionItem2" unique_id=1436417151]
-texture_filter = 1
-texture = ExtResource("16_85qyi")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="collectionItem2" unique_id=2146556122]
-scale = Vector2(0.99999976, 0.99999976)
-shape = SubResource("RectangleShape2D_1phco")
-debug_color = Color(0, 0.6, 0.7019608, 0.41960785)
-
-[node name="collectionItem3" type="Area2D" parent="." unique_id=775151335]
-position = Vector2(-823, -662)
-scale = Vector2(0.5, 0.5)
-script = ExtResource("19_vm72l")
-
-[node name="Sprite2D" type="Sprite2D" parent="collectionItem3" unique_id=159567779]
-texture_filter = 1
-texture = ExtResource("17_iivbl")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="collectionItem3" unique_id=1349600051]
-scale = Vector2(0.99999976, 0.99999976)
-shape = SubResource("RectangleShape2D_1phco")
-debug_color = Color(0, 0.6, 0.7019608, 0.41960785)
-
-[node name="collectionItem4" type="Area2D" parent="." unique_id=1664868019]
-position = Vector2(-452, -484)
-scale = Vector2(0.5, 0.5)
-script = ExtResource("13_1phco")
-
-[node name="Sprite2D" type="Sprite2D" parent="collectionItem4" unique_id=1294982882]
-texture_filter = 1
-texture = ExtResource("18_7nbq1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="collectionItem4" unique_id=1408983803]
-scale = Vector2(0.99999976, 0.99999976)
-shape = SubResource("RectangleShape2D_1phco")
-debug_color = Color(0, 0.6, 0.7019608, 0.41960785)
-
-[node name="Lungarea" type="Area2D" parent="." unique_id=721479583]
-script = ExtResource("20_7nbq1")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Lungarea" unique_id=706156334]
-position = Vector2(-708, -1715)
-polygon = PackedVector2Array(-172, -10, -321, -8, -544, -154, -574, -451, -530, -657, -257, -1234, -60, -1541, 210, -1898, 340, -1958, 537, -1888, 621, -1558, 667, -1381, 767, -1425, 941, -1418, 1031, -1415, 1088, -1635, 1138, -1842, 1281, -1968, 1428, -1875, 1515, -1695, 1748, -1495, 1968, -1048, 2108, -697, 2188, -237, 2055, -87, 1688, -14, 1461, -7, 1161, -150, 991, -360, 904, -724, 934, -958, 944, -1171, 887, -1281, 757, -1244, 744, -1114, 724, -884, 707, -697, 677, -384, 597, -210, 400, -50, 254, -7)
-
-[node name="brainarea" type="Area2D" parent="." unique_id=1952738494]
-script = ExtResource("21_exi56")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="brainarea" unique_id=184149065]
-position = Vector2(-260, -4841)
-polygon = PackedVector2Array(-189, 47, -410, -22, -772, -382, -825, -773, -655, -1223, -330, -1561, 126, -1738, 594, -1776, 1092, -1637, 1413, -1369, 1534, -939, 1443, -588, 1058, -501, 677, -501, 466, -441, 364, -218, 300, -165, 213, 23, 145, 246, 40, 231, 17, 106, -32, 35)
-
-[node name="Rainforest" type="Area2D" parent="." unique_id=1844621339]
-script = ExtResource("25_22asu")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rainforest" unique_id=517542704]
-position = Vector2(-375, -334)
-polygon = PackedVector2Array(155, -23, 240, -128, 349, -75, 506, 21, 756, -7, 957, 13, 1018, 94, 1392, 25, 1396, -95, 1674, -172, 1723, -269, 1775, -482, 1755, -768, 1654, -805, 1517, -728, 1449, -627, 1408, -954, 1239, -1111, 1050, -1123, 905, -1115, 961, -1256, 909, -1365, 699, -1429, 478, -1429, 208, -1397, -99, -1304, -296, -1268, -554, -1188, -747, -986, -852, -700, -868, -490, -852, -289, -764, -79, -627, -39, -405, -79, -304, -269, -151, -309, -252, -216, -332, -71, -357, 1, -147, 17, 83, -7)
-
-[node name="Maze" type="Area2D" parent="." unique_id=1630323209]
-script = ExtResource("26_fkdbe")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Maze" unique_id=456149713]
-polygon = PackedVector2Array(-50, -252, -210, -330, -360, -325, -554, -304, -797, -273, -1149, -258, -1322, -247, -1322, 325, -1318, 778, -1293, 865, -902, 854, -630, 850, -451, 816, -336, 829, -239, 829, 16, 854, 323, 879, 540, 858, 825, 860, 975, 866, 1119, 858, 1292, 854, 1328, 638, 1321, 227, 1313, -134, 967, -164, 460, -200, 217, -219)
-
-[node name="UILayer" type="CanvasLayer" parent="." unique_id=1355513190]
-
-[node name="UI" type="Control" parent="UILayer" unique_id=253348463]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="UILayer/UI" unique_id=1037230030]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -512.0
-offset_top = -512.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="SubViewport" type="SubViewport" parent="UILayer/UI/SubViewportContainer" unique_id=126766080]
-transparent_bg = true
-handle_input_locally = false
-render_target_update_mode = 4
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="UILayer/UI/SubViewportContainer/SubViewport" unique_id=1714112424]
-
-[node name="lopoly_babyface" type="Node3D" parent="UILayer/UI/SubViewportContainer/SubViewport" unique_id=2079339685]
-script = ExtResource("27_ese38")
-
-[node name="Armature" type="Node3D" parent="UILayer/UI/SubViewportContainer/SubViewport/lopoly_babyface" unique_id=2079027482]
+[node name="Armature" type="Node3D" parent="lopoly_babyface" unique_id=1763531267]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19557244, 0)
 
-[node name="Skeleton3D" type="Skeleton3D" parent="UILayer/UI/SubViewportContainer/SubViewport/lopoly_babyface/Armature" unique_id=573277444]
+[node name="Skeleton3D" type="Skeleton3D" parent="lopoly_babyface/Armature" unique_id=1503802060]
 bones/0/name = "Bone"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, -1.3327589e-15, 1.1732265e-15, 1.1732264e-15, 0.9919274, 0.12680733, -1.332759e-15, -0.12680733, 0.9919274, 0, 0, 0)
@@ -998,7 +349,7 @@ bones/1/parent = 0
 bones/1/rest = Transform3D(1, 3.970467e-23, -3.3087225e-23, -3.970467e-23, 1, 0, 3.3087225e-23, 0, 1, 2.5642599e-23, 0.071488425, 9.313226e-10)
 bones/1/enabled = true
 bones/1/position = Vector3(2.5642599e-23, 0.071488425, 9.313226e-10)
-bones/1/rotation = Quaternion(0.026183883, 0.0035976125, 0.016591907, 0.99951303)
+bones/1/rotation = Quaternion(0, -9.926167e-24, -9.926167e-24, 1)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "Bone.001"
 bones/2/parent = 1
@@ -1026,108 +377,33 @@ bones/5/parent = -1
 bones/5/rest = Transform3D(0.42960322, 0.7753129, 0.46295834, 0.7662227, -0.041677438, -0.6412217, -0.47785255, 0.63020015, -0.6119675, 0.038471475, 0.1321682, 0.031305555)
 bones/5/enabled = true
 bones/5/position = Vector3(0.038471468, 0.1321682, 0.031305563)
-bones/5/rotation = Quaternion(0.72113585, 0.5478737, -0.028315779, 0.42307895)
+bones/5/rotation = Quaternion(0.7216732, 0.53401464, -0.005159682, 0.4404425)
 bones/5/scale = Vector3(0.9999996, 0.99999964, 0.99999994)
 bones/6/name = "Bone.004"
 bones/6/parent = -1
 bones/6/rest = Transform3D(0.12743768, 0.9598507, 0.24989095, -0.71014065, 0.26418778, -0.6526138, -0.69243026, -0.0942901, 0.7152968, 0.053059086, 0.20940836, -0.02012895)
 bones/6/enabled = true
 bones/6/position = Vector3(0.05305909, 0.20940836, -0.02012894)
-bones/6/rotation = Quaternion(0.1912177, 0.33710435, -0.5580617, 0.73373264)
+bones/6/rotation = Quaternion(0.19232328, 0.32459718, -0.5752546, 0.7257621)
 bones/6/scale = Vector3(0.9999999, 0.9999996, 0.9999999)
 bones/7/name = "Bone.005"
 bones/7/parent = -1
 bones/7/rest = Transform3D(0.12743782, -0.959851, 0.2498908, 0.11124729, 0.26418778, 0.9580338, -0.98558795, -0.094290055, 0.14044836, -0.057086274, 0.20940836, -0.02012895)
 bones/7/enabled = true
 bones/7/position = Vector3(-0.05708628, 0.20940837, -0.020128952)
-bones/7/rotation = Quaternion(-0.4195136, 0.50333685, 0.4243998, 0.6249361)
+bones/7/rotation = Quaternion(-0.42508873, 0.4990746, 0.43267274, 0.618885)
 bones/7/scale = Vector3(1, 0.9999999, 0.99999994)
 
-[node name="Cube" type="MeshInstance3D" parent="UILayer/UI/SubViewportContainer/SubViewport/lopoly_babyface/Armature/Skeleton3D" unique_id=1825169739]
+[node name="Cube" type="MeshInstance3D" parent="lopoly_babyface/Armature/Skeleton3D" unique_id=1644618582]
 mesh = SubResource("ArrayMesh_clge1")
 skin = SubResource("Skin_djaef")
 skeleton = NodePath("..")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UILayer/UI/SubViewportContainer/SubViewport/lopoly_babyface" unique_id=61642590]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="lopoly_babyface" unique_id=531021804]
 libraries/ = SubResource("AnimationLibrary_6roak")
-autoplay = &"Action"
 
-[node name="Camera3D" type="Camera3D" parent="UILayer/UI/SubViewportContainer/SubViewport" unique_id=1964846442]
-transform = Transform3D(1, 0, 0, 0, 0.73570716, -0.67729986, 0, 0.67729986, 0.73570716, 0, -0.1200764, 0.35726088)
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1484792583]
+transparent_bg = true
 
-[node name="SwitchStateBaby" type="Timer" parent="UILayer/UI/SubViewportContainer/SubViewport" unique_id=234872252]
-wait_time = 5.0
-autostart = true
-
-[node name="AvailableSpawns" type="ProgressBar" parent="UILayer/UI" unique_id=919793212 node_paths=PackedStringArray("spawnComponent")]
-custom_minimum_size = Vector2(25, 0)
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_right = 4.0
-grow_vertical = 2
-theme_override_styles/background = SubResource("StyleBoxFlat_nnt18")
-theme_override_styles/fill = SubResource("StyleBoxFlat_ewbju")
-max_value = 5.0
-value = 3.0
-fill_mode = 3
-show_percentage = false
-script = ExtResource("17_ewbju")
-spawnComponent = NodePath("../../../Player/ClickSpawnComponent")
-
-[node name="Spawnpoint3" type="Node2D" parent="." unique_id=1742073134]
-position = Vector2(225, -4155)
-script = ExtResource("28_tgy6u")
-enemyToSpawn = ExtResource("29_cwurv")
-
-[node name="SpawnTimer" type="Timer" parent="Spawnpoint3" unique_id=1338227736]
-wait_time = 10.0
-autostart = true
-
-[node name="EnemiesSpawned" type="Node2D" parent="Spawnpoint3" unique_id=1802640416]
-top_level = true
-
-[node name="Spawnpoint2" type="Node2D" parent="." unique_id=1266000095]
-position = Vector2(-614, -1675)
-script = ExtResource("28_tgy6u")
-enemyToSpawn = ExtResource("17_85qyi")
-
-[node name="SpawnTimer" type="Timer" parent="Spawnpoint2" unique_id=1549135856]
-wait_time = 10.0
-autostart = true
-
-[node name="EnemiesSpawned" type="Node2D" parent="Spawnpoint2" unique_id=664832402]
-top_level = true
-
-[node name="Spawnpoint" type="Node2D" parent="." unique_id=724152284]
-position = Vector2(-913, 1509)
-script = ExtResource("28_tgy6u")
-enemyToSpawn = ExtResource("30_mucmn")
-
-[node name="SpawnTimer" type="Timer" parent="Spawnpoint" unique_id=943661064]
-wait_time = 10.0
-autostart = true
-
-[node name="EnemiesSpawned" type="Node2D" parent="Spawnpoint" unique_id=126963508]
-top_level = true
-
-[node name="Spawnpoint4" type="Node2D" parent="." unique_id=749706230]
-position = Vector2(-631, 5573)
-script = ExtResource("28_tgy6u")
-enemyToSpawn = ExtResource("30_mucmn")
-
-[node name="SpawnTimer" type="Timer" parent="Spawnpoint4" unique_id=1102946612]
-wait_time = 10.0
-autostart = true
-
-[node name="EnemiesSpawned" type="Node2D" parent="Spawnpoint4" unique_id=129017155]
-top_level = true
-
-[connection signal="timeout" from="Player/Sprite2D/Timer" to="Player/Sprite2D" method="_on_timer_timeout"]
-[connection signal="body_entered" from="Teleporters/Teleporter" to="Teleporters/Teleporter" method="_on_body_entered"]
-[connection signal="body_entered" from="Teleporters/Teleporter2" to="Teleporters/Teleporter2" method="_on_body_entered"]
-[connection signal="timeout" from="UILayer/UI/SubViewportContainer/SubViewport/SwitchStateBaby" to="UILayer/UI/SubViewportContainer/SubViewport/lopoly_babyface" method="_on_switch_state_baby_timeout"]
-[connection signal="timeout" from="Spawnpoint3/SpawnTimer" to="Spawnpoint3" method="_on_spawn_timer_timeout"]
-[connection signal="timeout" from="Spawnpoint2/SpawnTimer" to="Spawnpoint2" method="_on_spawn_timer_timeout"]
-[connection signal="timeout" from="Spawnpoint/SpawnTimer" to="Spawnpoint" method="_on_spawn_timer_timeout"]
-[connection signal="timeout" from="Spawnpoint4/SpawnTimer" to="Spawnpoint4" method="_on_spawn_timer_timeout"]
+[node name="Camera3D" type="Camera3D" parent="SubViewport" unique_id=871212821]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.47440726)
