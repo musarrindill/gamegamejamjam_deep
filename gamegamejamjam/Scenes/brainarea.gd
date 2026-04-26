@@ -2,7 +2,6 @@ extends Area2D
 
 @export var zone_name: String = "brain"
 
-var player_inside := false
 
 func _ready():
 	body_entered.connect(_on_body_entered)

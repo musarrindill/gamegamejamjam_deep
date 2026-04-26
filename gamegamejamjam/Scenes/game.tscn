@@ -16,7 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://bng3sg1mf17a6" path="res://SFX/teleport.mp3" id="11_oeip8"]
 [ext_resource type="AudioStream" uid="uid://ond2bfrtprnl" path="res://Music/gamejam_soundscape_1.mp3" id="12_rku1e"]
 [ext_resource type="Script" uid="uid://dg6s12t3e38s6" path="res://Scenes/object.gd" id="13_1phco"]
-[ext_resource type="Script" path="res://Scenes/collection_item_1.gd" id="15_7t8sx"]
+[ext_resource type="Script" uid="uid://qvup8l6jon7d" path="res://Scenes/collection_item_1.gd" id="15_7t8sx"]
 [ext_resource type="AudioStream" uid="uid://c43nsg6biahac" path="res://SFX/die.mp3" id="15_xe308"]
 [ext_resource type="Texture2D" uid="uid://dhp5vs4evcjys" path="res://Art/miscImages/collect1.webp" id="16_85qyi"]
 [ext_resource type="Script" uid="uid://cx30elqlaaako" path="res://Scenes/enemy_deathsound.gd" id="16_d3cha"]
@@ -24,18 +24,20 @@
 [ext_resource type="PackedScene" uid="uid://b5u85aeo6suxj" path="res://Scenes/Enemy/enemy.tscn" id="17_85qyi"]
 [ext_resource type="Script" uid="uid://ctlisqrmsi3b7" path="res://Scenes/UI/available_spawns.gd" id="17_ewbju"]
 [ext_resource type="Texture2D" uid="uid://7wiadaofchdw" path="res://Art/miscImages/collect3.webp" id="17_iivbl"]
-[ext_resource type="Script" path="res://Scenes/collection_item_2.gd" id="17_mg4q0"]
+[ext_resource type="Script" uid="uid://cncr7gex2l0uw" path="res://Scenes/collection_item_2.gd" id="17_mg4q0"]
 [ext_resource type="Texture2D" uid="uid://5l0qo77wwhig" path="res://Art/miscImages/collect4.webp" id="18_7nbq1"]
-[ext_resource type="Script" path="res://Scenes/collection_item_3.gd" id="19_vm72l"]
-[ext_resource type="Script" path="res://Scenes/lungarea.gd" id="20_7nbq1"]
-[ext_resource type="Script" path="res://Scenes/brainarea.gd" id="21_exi56"]
-[ext_resource type="Script" path="res://Scenes/reainforest.gd" id="25_22asu"]
-[ext_resource type="Script" path="res://Scenes/maze.gd" id="26_fkdbe"]
+[ext_resource type="Script" uid="uid://dplj017egrp1u" path="res://Scenes/collection_item_3.gd" id="19_vm72l"]
+[ext_resource type="Script" uid="uid://de2lxsenicri6" path="res://Scenes/lungarea.gd" id="20_7nbq1"]
+[ext_resource type="Script" uid="uid://djpm6jcfr6ask" path="res://Scenes/brainarea.gd" id="21_exi56"]
+[ext_resource type="Script" uid="uid://buldj6fmuptrm" path="res://Scenes/reainforest.gd" id="25_22asu"]
+[ext_resource type="Script" uid="uid://kydsp0t1c84d" path="res://Scenes/maze.gd" id="26_fkdbe"]
 [ext_resource type="Texture2D" uid="uid://b5ka7jgssqhhi" path="res://3d/lopoly_babyface_babyTex.png" id="27_8m3t6"]
 [ext_resource type="Script" uid="uid://rfnvvq65r7mh" path="res://Scenes/lopoly_babyface.gd" id="27_ese38"]
 [ext_resource type="Script" uid="uid://c8m2vhrgwlurx" path="res://Scenes/spawnpoint.gd" id="28_tgy6u"]
 [ext_resource type="PackedScene" uid="uid://trwww3g7b2i" path="res://Scenes/Enemy/enemy2.tscn" id="29_cwurv"]
+[ext_resource type="Texture2D" uid="uid://dsgnhrtwmaq8j" path="res://Art/miscImages/bubbla.webp" id="30_d3cha"]
 [ext_resource type="PackedScene" uid="uid://cccc6ivm404ed" path="res://Scenes/Enemy/enemy3.tscn" id="30_mucmn"]
+[ext_resource type="Script" uid="uid://epwbjmt37jmd" path="res://Scenes/panel.gd" id="31_i26dy"]
 
 [sub_resource type="Gradient" id="Gradient_wowpa"]
 interpolation_mode = 1
@@ -599,6 +601,9 @@ bg_color = Color(0.8235294, 0.8235294, 0.8235294, 0.60784316)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ewbju"]
 bg_color = Color(0, 0.7603484, 0.5917252, 1)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i26dy"]
+texture = ExtResource("30_d3cha")
+
 [node name="Game" type="Node2D" unique_id=1268051739]
 script = ExtResource("1_wowpa")
 
@@ -791,13 +796,12 @@ shape = SubResource("SegmentShape2D_32sfa")
 position = Vector2(-501, -1086)
 texture = ExtResource("3_h4fw4")
 
-[node name="MiscAreas" type="Node2D" parent="Map" unique_id=304896478]
-
-[node name="Player" type="CharacterBody2D" parent="." unique_id=1674180056 groups=["Player"]]
-position = Vector2(1171, -4465)
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1674180056 node_paths=PackedStringArray("speech_bubble") groups=["Player"]]
+position = Vector2(-1011, 6300)
 motion_mode = 1
 script = ExtResource("2_qxrlw")
 SPEED = 500.0
+speech_bubble = NodePath("../UILayer/UI/Panel")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=504895108]
 shape = SubResource("RectangleShape2D_ebmjs")
@@ -827,10 +831,11 @@ max_polyphony = 3
 bus = &"PlayerFX"
 playback_type = 2
 
-[node name="ClickSpawnComponent" type="Node2D" parent="Player" unique_id=1776517023 node_paths=PackedStringArray("followerGroup")]
+[node name="ClickSpawnComponent" type="Node2D" parent="Player" unique_id=1776517023 node_paths=PackedStringArray("followerGroup", "speech_bubble")]
 script = ExtResource("8_nb51f")
 Spawnable = ExtResource("9_nnt18")
 followerGroup = NodePath("../../Followers")
+speech_bubble = NodePath("../../UILayer/UI/Panel")
 
 [node name="ProgressBar" type="ProgressBar" parent="Player" unique_id=1844113004]
 custom_minimum_size = Vector2(100, 10)
@@ -946,16 +951,18 @@ volume_db = -12.0
 autoplay = true
 bus = &"Ambience"
 
+
+[node name="collectionItem1" type="Area2D" parent="." unique_id=380358405 node_paths=PackedStringArray("speech_bubble")]
+position = Vector2(-256, -630)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("15_7t8sx")
+speech_bubble = NodePath("../UILayer/UI/Panel")
+
 [node name="EnemyDeathsound" type="AudioStreamPlayer" parent="Audio" unique_id=1104864764]
 stream = SubResource("AudioStreamRandomizer_d3cha")
 volume_db = -18.0
 bus = &"Teleport FX"
 script = ExtResource("16_d3cha")
-
-[node name="collectionItem1" type="Area2D" parent="." unique_id=380358405]
-position = Vector2(-256, -630)
-scale = Vector2(0.5, 0.5)
-script = ExtResource("15_7t8sx")
 
 [node name="Sprite2D" type="Sprite2D" parent="collectionItem1" unique_id=1431445822]
 texture_filter = 1
@@ -968,10 +975,11 @@ debug_color = Color(0, 0.6, 0.7019608, 0.41960785)
 
 [node name="Followers" type="Node2D" parent="." unique_id=2106635774]
 
-[node name="collectionItem2" type="Area2D" parent="." unique_id=1411431683]
+[node name="collectionItem2" type="Area2D" parent="." unique_id=1411431683 node_paths=PackedStringArray("speech_bubble")]
 position = Vector2(-10, -527)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("17_mg4q0")
+speech_bubble = NodePath("../UILayer/UI/Panel")
 
 [node name="Sprite2D" type="Sprite2D" parent="collectionItem2" unique_id=1436417151]
 texture_filter = 1
@@ -982,10 +990,11 @@ scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_1phco")
 debug_color = Color(0, 0.6, 0.7019608, 0.41960785)
 
-[node name="collectionItem3" type="Area2D" parent="." unique_id=775151335]
+[node name="collectionItem3" type="Area2D" parent="." unique_id=775151335 node_paths=PackedStringArray("speech_bubble")]
 position = Vector2(-823, -662)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("19_vm72l")
+speech_bubble = NodePath("../UILayer/UI/Panel")
 
 [node name="Sprite2D" type="Sprite2D" parent="collectionItem3" unique_id=159567779]
 texture_filter = 1
@@ -996,10 +1005,11 @@ scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_1phco")
 debug_color = Color(0, 0.6, 0.7019608, 0.41960785)
 
-[node name="collectionItem4" type="Area2D" parent="." unique_id=1664868019]
+[node name="collectionItem4" type="Area2D" parent="." unique_id=1664868019 node_paths=PackedStringArray("speech_bubble")]
 position = Vector2(-452, -484)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("13_1phco")
+speech_bubble = NodePath("../UILayer/UI/Panel")
 
 [node name="Sprite2D" type="Sprite2D" parent="collectionItem4" unique_id=1294982882]
 texture_filter = 1
@@ -1085,7 +1095,7 @@ bones/1/parent = 0
 bones/1/rest = Transform3D(1, 3.970467e-23, -3.3087225e-23, -3.970467e-23, 1, 0, 3.3087225e-23, 0, 1, 2.5642599e-23, 0.071488425, 9.313226e-10)
 bones/1/enabled = true
 bones/1/position = Vector3(2.5642599e-23, 0.071488425, 9.313226e-10)
-bones/1/rotation = Quaternion(0.011495102, 0.0015794046, 0.007284092, 0.99990624)
+bones/1/rotation = Quaternion(0, -9.926167e-24, -9.926167e-24, 1)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "Bone.001"
 bones/2/parent = 1
@@ -1113,21 +1123,21 @@ bones/5/parent = -1
 bones/5/rest = Transform3D(0.42960322, 0.7753129, 0.46295834, 0.7662227, -0.041677438, -0.6412217, -0.47785255, 0.63020015, -0.6119675, 0.038471475, 0.1321682, 0.031305555)
 bones/5/enabled = true
 bones/5/position = Vector3(0.038471468, 0.1321682, 0.031305563)
-bones/5/rotation = Quaternion(0.7215289, 0.5401665, -0.015325917, 0.43287575)
+bones/5/rotation = Quaternion(0.7216732, 0.53401464, -0.005159682, 0.4404425)
 bones/5/scale = Vector3(0.9999996, 0.99999964, 0.99999994)
 bones/6/name = "Bone.004"
 bones/6/parent = -1
 bones/6/rest = Transform3D(0.12743768, 0.9598507, 0.24989095, -0.71014065, 0.26418778, -0.6526138, -0.69243026, -0.0942901, 0.7152968, 0.053059086, 0.20940836, -0.02012895)
 bones/6/enabled = true
 bones/6/position = Vector3(0.05305909, 0.20940836, -0.02012894)
-bones/6/rotation = Quaternion(0.19184999, 0.33010995, -0.56774163, 0.7293083)
+bones/6/rotation = Quaternion(0.19232328, 0.32459718, -0.5752546, 0.7257621)
 bones/6/scale = Vector3(0.9999999, 0.9999996, 0.9999999)
 bones/7/name = "Bone.005"
 bones/7/parent = -1
 bones/7/rest = Transform3D(0.12743782, -0.959851, 0.2498908, 0.11124729, 0.26418778, 0.9580338, -0.98558795, -0.094290055, 0.14044836, -0.057086274, 0.20940836, -0.02012895)
 bones/7/enabled = true
 bones/7/position = Vector3(-0.05708628, 0.20940837, -0.020128952)
-bones/7/rotation = Quaternion(-0.42264822, 0.5009561, 0.42904755, 0.6215543)
+bones/7/rotation = Quaternion(-0.42508873, 0.4990746, 0.43267274, 0.618885)
 bones/7/scale = Vector3(1, 0.9999999, 0.99999994)
 
 [node name="Cube" type="MeshInstance3D" parent="UILayer/UI/SubViewportContainer/SubViewport/lopoly_babyface/Armature/Skeleton3D" unique_id=1825169739]
@@ -1161,6 +1171,28 @@ fill_mode = 3
 show_percentage = false
 script = ExtResource("17_ewbju")
 spawnComponent = NodePath("../../../Player/ClickSpawnComponent")
+
+[node name="Panel" type="Panel" parent="UILayer/UI" unique_id=737618810]
+layout_mode = 0
+offset_left = 1482.0
+offset_top = 542.0
+offset_right = 1882.0
+offset_bottom = 742.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_i26dy")
+script = ExtResource("31_i26dy")
+
+[node name="DialogueLabel" type="Label" parent="UILayer/UI/Panel" unique_id=1968455533]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 51.0
+offset_right = 366.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Helllo
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Spawnpoint3" type="Node2D" parent="." unique_id=1742073134]
 position = Vector2(225, -4155)

@@ -3,10 +3,12 @@ extends CharacterBody2D
 @export var SPEED = 300.0
 @onready var audio_stream_player: AudioStreamPlayer = $Footsteps
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@export var speech_bubble: Panel
 
 signal CharacterDied
 
 var current_zone := ""
+var carried_items: Array = []
 enum States{IDLE, RUNNING, SPRINTING}
 var state : int = 0
 var direction : Vector2
@@ -78,3 +80,24 @@ func _die():
 	alive = false
 	visible = false
 	CharacterDied.emit()
+		
+func _process(_delta):
+	if Input.is_action_just_pressed("drop"):
+		handle_drop()
+
+func handle_drop():
+	if carried_items.is_empty():
+		return
+
+	var correct_items := []
+
+	for item in carried_items:
+		if item.target_zone_name == current_zone:
+			correct_items.append(item)
+
+	if correct_items.size() > 0:
+		for item in correct_items:
+			item.drop()
+			carried_items.erase(item)
+	else:
+		speech_bubble.say_one("wrong_body_part", 3.0)
