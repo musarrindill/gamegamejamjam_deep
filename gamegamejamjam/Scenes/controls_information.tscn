@@ -46,16 +46,17 @@ theme_override_font_sizes/font_size = 24
 text = "- WASD or ARROW KEYS to walk
 - SPACEBAR to dash
 - LEFT MOUSE BUTTON to spawn allies
+- E to drop gizmos
 - Z to zoom in or out
 - Backspace to restart"
 
 [node name="Button" type="Button" parent="." unique_id=817674428]
 custom_minimum_size = Vector2(350, 0)
 layout_mode = 0
-offset_left = 27.0
-offset_top = 253.0
-offset_right = 377.0
-offset_bottom = 330.0
+offset_left = 28.0
+offset_top = 972.0
+offset_right = 378.0
+offset_bottom = 1049.0
 size_flags_vertical = 3
 theme_override_fonts/font = SubResource("SystemFont_nvfcy")
 theme_override_font_sizes/font_size = 32

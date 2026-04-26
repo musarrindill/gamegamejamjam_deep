@@ -4,8 +4,10 @@ extends CharacterBody2D
 @onready var audio_stream_player: AudioStreamPlayer = $Footsteps
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @export var speech_bubble: Panel
+@onready var damage_sounds: AudioStreamPlayer = $DamageSounds
 
 signal CharacterDied
+signal TookDamage
 
 var current_zone := ""
 var carried_items: Array = []
@@ -23,6 +25,9 @@ var health : int :
 		health = value
 		print("health changed: ", health)
 		
+		if value != maxHealth and alive:
+			damage_sounds.play(0)
+			TookDamage.emit()
 		if value <= 0:
 			_die()
 	get:

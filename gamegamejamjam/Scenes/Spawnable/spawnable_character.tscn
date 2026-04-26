@@ -24,6 +24,8 @@ radius = 500.0
 radius = 80.0
 
 [node name="SpawnableCharacter" type="CharacterBody2D" unique_id=1308026998]
+collision_layer = 2
+collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_pkjp1")
 
@@ -55,6 +57,8 @@ show_percentage = false
 script = ExtResource("3_owvpu")
 
 [node name="SearchArea" type="Area2D" parent="." unique_id=1156078226]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SearchArea" unique_id=1614767077]
 shape = SubResource("CircleShape2D_owvpu")
