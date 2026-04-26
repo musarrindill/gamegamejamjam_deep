@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://od8t7xhs2p2f" path="res://Art/snek2_strip6.png" id="2_ymnt4"]
 [ext_resource type="Script" uid="uid://bg2rhw7efx4ms" path="res://Scenes/Spawnable/progress_bar.gd" id="3_myqeu"]
 [ext_resource type="Script" uid="uid://5f8ui54wjnn3" path="res://Scenes/HitboxComponent.gd" id="4_qclrm"]
+[ext_resource type="AudioStream" uid="uid://bnd4pagmhmde0" path="res://SFX/hitsound2.mp3" id="5_qclrm"]
+[ext_resource type="AudioStream" uid="uid://canewtahe3cm2" path="res://SFX/hitsound.mp3" id="6_ptu8m"]
+[ext_resource type="Script" uid="uid://cswqtf48uu6hb" path="res://Scenes/Enemy/hurtsound.gd" id="7_j8fpy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d40jh"]
 atlas = ExtResource("2_ymnt4")
@@ -22,6 +25,12 @@ bg_color = Color(0.53823394, 0.6641714, 0, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2t2r4"]
 radius = 100.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_grwjx"]
+random_pitch = 1.1892071
+streams_count = 2
+stream_0/stream = ExtResource("5_qclrm")
+stream_1/stream = ExtResource("6_ptu8m")
 
 [node name="Enemy2" type="CharacterBody2D" unique_id=130497674 groups=["Enemies"]]
 motion_mode = 1
@@ -66,6 +75,12 @@ shape = SubResource("CircleShape2D_2t2r4")
 wait_time = 0.1
 autostart = true
 
+[node name="Hurtsound" type="AudioStreamPlayer2D" parent="." unique_id=1034043734]
+stream = SubResource("AudioStreamRandomizer_grwjx")
+volume_db = -12.0
+script = ExtResource("7_j8fpy")
+
 [connection signal="body_entered" from="SearchArea" to="." method="_on_search_area_body_entered"]
 [connection signal="body_exited" from="SearchArea" to="." method="_on_search_area_body_exited"]
+[connection signal="TookDamage" from="Hitbox" to="Hurtsound" method="_on_hitbox_took_damage"]
 [connection signal="timeout" from="SpriteTimer" to="." method="_on_sprite_timer_timeout"]

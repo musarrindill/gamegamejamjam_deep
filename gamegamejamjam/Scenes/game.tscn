@@ -12,11 +12,14 @@
 [ext_resource type="PackedScene" uid="uid://4evb1n10ynxk" path="res://Scenes/Spawnable/spawnable_character.tscn" id="9_nnt18"]
 [ext_resource type="Script" uid="uid://dphj4ehn11wyk" path="res://Scenes/Teleporter/teleporter.gd" id="10_ldgsr"]
 [ext_resource type="AudioStream" uid="uid://c7f66xfcux0wb" path="res://Music/gamejam4_tune.wav" id="10_o5yvi"]
-[ext_resource type="AudioStream" uid="uid://bng3sg1mf17a6" path="res://resources/teleport.mp3" id="11_oeip8"]
+[ext_resource type="AudioStream" uid="uid://bng3sg1mf17a6" path="res://SFX/teleport.mp3" id="11_oeip8"]
 [ext_resource type="AudioStream" uid="uid://ond2bfrtprnl" path="res://Music/gamejam_soundscape_1.mp3" id="12_rku1e"]
 [ext_resource type="Script" uid="uid://dg6s12t3e38s6" path="res://Scenes/object.gd" id="13_1phco"]
 [ext_resource type="Script" uid="uid://qvup8l6jon7d" path="res://Scenes/collection_item_1.gd" id="15_7t8sx"]
+[ext_resource type="Script" path="res://Scenes/collection_item_1.gd" id="15_7t8sx"]
+[ext_resource type="AudioStream" uid="uid://c43nsg6biahac" path="res://SFX/die.mp3" id="15_xe308"]
 [ext_resource type="Texture2D" uid="uid://dhp5vs4evcjys" path="res://Art/miscImages/collect1.webp" id="16_85qyi"]
+[ext_resource type="Script" uid="uid://cx30elqlaaako" path="res://Scenes/enemy_deathsound.gd" id="16_d3cha"]
 [ext_resource type="Texture2D" uid="uid://mr1t7vb3a53" path="res://Art/miscImages/collect2.webp" id="16_iivbl"]
 [ext_resource type="PackedScene" uid="uid://b5u85aeo6suxj" path="res://Scenes/Enemy/enemy.tscn" id="17_85qyi"]
 [ext_resource type="Script" uid="uid://ctlisqrmsi3b7" path="res://Scenes/UI/available_spawns.gd" id="17_ewbju"]
@@ -29,8 +32,8 @@
 [ext_resource type="Script" uid="uid://buldj6fmuptrm" path="res://Scenes/reainforest.gd" id="25_22asu"]
 [ext_resource type="Script" uid="uid://kydsp0t1c84d" path="res://Scenes/maze.gd" id="26_fkdbe"]
 [ext_resource type="Texture2D" uid="uid://b5ka7jgssqhhi" path="res://3d/lopoly_babyface_babyTex.png" id="27_8m3t6"]
-[ext_resource type="Script" path="res://Scenes/lopoly_babyface.gd" id="27_ese38"]
-[ext_resource type="Script" path="res://Scenes/spawnpoint.gd" id="28_tgy6u"]
+[ext_resource type="Script" uid="uid://rfnvvq65r7mh" path="res://Scenes/lopoly_babyface.gd" id="27_ese38"]
+[ext_resource type="Script" uid="uid://c8m2vhrgwlurx" path="res://Scenes/spawnpoint.gd" id="28_tgy6u"]
 [ext_resource type="PackedScene" uid="uid://trwww3g7b2i" path="res://Scenes/Enemy/enemy2.tscn" id="29_cwurv"]
 [ext_resource type="Texture2D" uid="uid://dsgnhrtwmaq8j" path="res://Art/miscImages/bubbla.webp" id="30_d3cha"]
 [ext_resource type="PackedScene" uid="uid://cccc6ivm404ed" path="res://Scenes/Enemy/enemy3.tscn" id="30_mucmn"]
@@ -233,6 +236,11 @@ height = 128
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_oeip8"]
+random_pitch = 1.9999999
+streams_count = 1
+stream_0/stream = ExtResource("11_oeip8")
+
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_3dryh"]
 fade_time = 0.1
 stream_count = 1
@@ -247,6 +255,11 @@ stream_0 = ExtResource("10_o5yvi")
 fade_time = 0.01
 stream_count = 1
 stream_0 = ExtResource("12_rku1e")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_d3cha"]
+random_pitch = 1.2599211
+streams_count = 1
+stream_0/stream = ExtResource("15_xe308")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1phco"]
 size = Vector2(64, 64)
@@ -820,11 +833,12 @@ speech_bubble = NodePath("../../UILayer/UI/Panel")
 
 [node name="Teleporters" type="Node2D" parent="." unique_id=428377364]
 
-[node name="Teleporter" type="Area2D" parent="Teleporters" unique_id=1081454921 node_paths=PackedStringArray("counterpart", "offset")]
+[node name="Teleporter" type="Area2D" parent="Teleporters" unique_id=1081454921 node_paths=PackedStringArray("counterpart", "offset", "audio")]
 position = Vector2(1246, 6347)
 script = ExtResource("10_ldgsr")
 counterpart = NodePath("../Teleporter2")
 offset = NodePath("Marker2D")
+audio = NodePath("../TeleportAudio")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporters/Teleporter" unique_id=1416337000]
 shape = SubResource("CircleShape2D_o5yvi")
@@ -835,11 +849,12 @@ position = Vector2(-25, -231)
 [node name="Sprite2D" type="Sprite2D" parent="Teleporters/Teleporter" unique_id=2005007176]
 texture = SubResource("GradientTexture2D_8m3t6")
 
-[node name="Teleporter2" type="Area2D" parent="Teleporters" unique_id=2090217853 node_paths=PackedStringArray("counterpart", "offset")]
+[node name="Teleporter2" type="Area2D" parent="Teleporters" unique_id=2090217853 node_paths=PackedStringArray("counterpart", "offset", "audio")]
 position = Vector2(-158, -4702)
 script = ExtResource("10_ldgsr")
 counterpart = NodePath("../Teleporter")
 offset = NodePath("Marker2D")
+audio = NodePath("../TeleportAudio")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporters/Teleporter2" unique_id=2102133153]
 shape = SubResource("CircleShape2D_o5yvi")
@@ -853,11 +868,12 @@ texture = SubResource("GradientTexture2D_8m3t6")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Teleporters/Teleporter2" unique_id=1631376447]
 stream = ExtResource("11_oeip8")
 
-[node name="Teleporter3" type="Area2D" parent="Teleporters" unique_id=133768605 node_paths=PackedStringArray("counterpart", "offset")]
+[node name="Teleporter3" type="Area2D" parent="Teleporters" unique_id=133768605 node_paths=PackedStringArray("counterpart", "offset", "audio")]
 position = Vector2(-1839, 6423)
 script = ExtResource("10_ldgsr")
 counterpart = NodePath("../Teleporter4")
 offset = NodePath("Marker2D")
+audio = NodePath("../TeleportAudio")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporters/Teleporter3" unique_id=1865807605]
 shape = SubResource("CircleShape2D_o5yvi")
@@ -868,11 +884,12 @@ position = Vector2(316, 0)
 [node name="Sprite2D" type="Sprite2D" parent="Teleporters/Teleporter3" unique_id=227706510]
 texture = SubResource("GradientTexture2D_8m3t6")
 
-[node name="Teleporter4" type="Area2D" parent="Teleporters" unique_id=22856743 node_paths=PackedStringArray("counterpart", "offset")]
+[node name="Teleporter4" type="Area2D" parent="Teleporters" unique_id=22856743 node_paths=PackedStringArray("counterpart", "offset", "audio")]
 position = Vector2(1268, -3239)
 script = ExtResource("10_ldgsr")
 counterpart = NodePath("../Teleporter3")
 offset = NodePath("Marker2D")
+audio = NodePath("../TeleportAudio")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporters/Teleporter4" unique_id=1388024505]
 shape = SubResource("CircleShape2D_o5yvi")
@@ -882,6 +899,11 @@ position = Vector2(282, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Teleporters/Teleporter4" unique_id=1287641884]
 texture = SubResource("GradientTexture2D_8m3t6")
+
+[node name="TeleportAudio" type="AudioStreamPlayer" parent="Teleporters" unique_id=1918348169]
+stream = SubResource("AudioStreamRandomizer_oeip8")
+volume_db = -32.0
+bus = &"Teleport FX"
 
 [node name="Audio" type="Node2D" parent="." unique_id=34433431]
 
@@ -906,7 +928,16 @@ volume_db = -12.0
 autoplay = true
 bus = &"Ambience"
 
+
 [node name="collectionItem1" type="Area2D" parent="." unique_id=380358405 node_paths=PackedStringArray("speech_bubble")]
+
+[node name="EnemyDeathsound" type="AudioStreamPlayer" parent="Audio" unique_id=1104864764]
+stream = SubResource("AudioStreamRandomizer_d3cha")
+volume_db = -18.0
+bus = &"Teleport FX"
+script = ExtResource("16_d3cha")
+
+
 position = Vector2(-256, -630)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("15_7t8sx")

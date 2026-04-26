@@ -17,7 +17,7 @@ func _physics_process(delta: float) -> void:
 	direction = Input.get_vector("Left", "Right", "Up", "Down").normalized()
 
 	if sprint_timer > 0:
-		sprint_timer -= 1
+		sprint_timer -= 1 * delta
 	else:
 		is_sprinting = false
 
