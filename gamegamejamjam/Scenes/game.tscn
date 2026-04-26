@@ -16,7 +16,6 @@
 [ext_resource type="AudioStream" uid="uid://ond2bfrtprnl" path="res://Music/gamejam_soundscape_1.mp3" id="12_rku1e"]
 [ext_resource type="Script" uid="uid://dg6s12t3e38s6" path="res://Scenes/object.gd" id="13_1phco"]
 [ext_resource type="Script" uid="uid://qvup8l6jon7d" path="res://Scenes/collection_item_1.gd" id="15_7t8sx"]
-[ext_resource type="Script" path="res://Scenes/collection_item_1.gd" id="15_7t8sx"]
 [ext_resource type="AudioStream" uid="uid://c43nsg6biahac" path="res://SFX/die.mp3" id="15_xe308"]
 [ext_resource type="Texture2D" uid="uid://dhp5vs4evcjys" path="res://Art/miscImages/collect1.webp" id="16_85qyi"]
 [ext_resource type="Script" uid="uid://cx30elqlaaako" path="res://Scenes/enemy_deathsound.gd" id="16_d3cha"]
@@ -930,18 +929,16 @@ bus = &"Ambience"
 
 
 [node name="collectionItem1" type="Area2D" parent="." unique_id=380358405 node_paths=PackedStringArray("speech_bubble")]
+position = Vector2(-256, -630)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("15_7t8sx")
+speech_bubble = NodePath("../UILayer/UI/Panel")
 
 [node name="EnemyDeathsound" type="AudioStreamPlayer" parent="Audio" unique_id=1104864764]
 stream = SubResource("AudioStreamRandomizer_d3cha")
 volume_db = -18.0
 bus = &"Teleport FX"
 script = ExtResource("16_d3cha")
-
-
-position = Vector2(-256, -630)
-scale = Vector2(0.5, 0.5)
-script = ExtResource("15_7t8sx")
-speech_bubble = NodePath("../UILayer/UI/Panel")
 
 [node name="Sprite2D" type="Sprite2D" parent="collectionItem1" unique_id=1431445822]
 texture_filter = 1
