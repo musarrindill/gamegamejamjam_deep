@@ -13,9 +13,12 @@
 [ext_resource type="Script" uid="uid://bg2rhw7efx4ms" path="res://Scenes/Spawnable/progress_bar.gd" id="10_i26dy"]
 [ext_resource type="Script" uid="uid://dphj4ehn11wyk" path="res://Scenes/Teleporter/teleporter.gd" id="10_ldgsr"]
 [ext_resource type="AudioStream" uid="uid://c7f66xfcux0wb" path="res://Music/gamejam4_tune.wav" id="10_o5yvi"]
+[ext_resource type="AudioStream" uid="uid://bnd4pagmhmde0" path="res://SFX/hitsound2.mp3" id="11_f3c8l"]
 [ext_resource type="AudioStream" uid="uid://bng3sg1mf17a6" path="res://SFX/teleport.mp3" id="11_oeip8"]
+[ext_resource type="AudioStream" uid="uid://canewtahe3cm2" path="res://SFX/hitsound.mp3" id="12_bu0y5"]
 [ext_resource type="AudioStream" uid="uid://ond2bfrtprnl" path="res://Music/gamejam_soundscape_1.mp3" id="12_rku1e"]
 [ext_resource type="Script" uid="uid://dg6s12t3e38s6" path="res://Scenes/object.gd" id="13_1phco"]
+[ext_resource type="AudioStream" uid="uid://3be17gbgs0vy" path="res://SFX/wetstep.mp3" id="13_6a4tp"]
 [ext_resource type="Script" uid="uid://qvup8l6jon7d" path="res://Scenes/collection_item_1.gd" id="15_7t8sx"]
 [ext_resource type="AudioStream" uid="uid://c43nsg6biahac" path="res://SFX/die.mp3" id="15_xe308"]
 [ext_resource type="Texture2D" uid="uid://dhp5vs4evcjys" path="res://Art/miscImages/collect1.webp" id="16_85qyi"]
@@ -28,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://5l0qo77wwhig" path="res://Art/miscImages/collect4.webp" id="18_7nbq1"]
 [ext_resource type="Script" uid="uid://dplj017egrp1u" path="res://Scenes/collection_item_3.gd" id="19_vm72l"]
 [ext_resource type="Script" uid="uid://de2lxsenicri6" path="res://Scenes/lungarea.gd" id="20_7nbq1"]
+[ext_resource type="AudioStream" uid="uid://b23dr3tflkxu1" path="res://SFX/bongosound.mp3" id="21_bu0y5"]
 [ext_resource type="Script" uid="uid://djpm6jcfr6ask" path="res://Scenes/brainarea.gd" id="21_exi56"]
 [ext_resource type="Script" uid="uid://buldj6fmuptrm" path="res://Scenes/reainforest.gd" id="25_22asu"]
 [ext_resource type="Script" uid="uid://kydsp0t1c84d" path="res://Scenes/maze.gd" id="26_fkdbe"]
@@ -37,7 +41,19 @@
 [ext_resource type="PackedScene" uid="uid://trwww3g7b2i" path="res://Scenes/Enemy/enemy2.tscn" id="29_cwurv"]
 [ext_resource type="Texture2D" uid="uid://dsgnhrtwmaq8j" path="res://Art/miscImages/bubbla.webp" id="30_d3cha"]
 [ext_resource type="PackedScene" uid="uid://cccc6ivm404ed" path="res://Scenes/Enemy/enemy3.tscn" id="30_mucmn"]
-[ext_resource type="Script" uid="uid://epwbjmt37jmd" path="res://Scenes/panel.gd" id="31_i26dy"]
+[ext_resource type="Script" path="res://Scenes/panel.gd" id="31_i26dy"]
+
+[sub_resource type="Gradient" id="Gradient_f3c8l"]
+offsets = PackedFloat32Array(0, 0.7224138)
+colors = PackedColorArray(0.84813774, 0.4457081, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bu0y5"]
+gradient = SubResource("Gradient_f3c8l")
+width = 420
+height = 333
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.01098113)
 
 [sub_resource type="Gradient" id="Gradient_wowpa"]
 interpolation_mode = 1
@@ -198,12 +214,12 @@ b = Vector2(72, -53)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ebmjs"]
 size = Vector2(64, 64)
 
-[sub_resource type="Gradient" id="Gradient_1l0tm"]
+[sub_resource type="Gradient" id="Gradient_6uxt2"]
 offsets = PackedFloat32Array(0.08581236, 0.6693364)
 colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_v158k"]
-gradient = SubResource("Gradient_1l0tm")
+gradient = SubResource("Gradient_6uxt2")
 width = 128
 height = 32
 fill = 1
@@ -227,6 +243,14 @@ bg_color = Color(0.69609565, 0.6960957, 0.6960956, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6uxt2"]
 bg_color = Color(0.53823394, 0.6641714, 0, 1)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_6uxt2"]
+random_pitch = 1.4142135
+random_volume_offset_db = 3.0
+streams_count = 3
+stream_0/stream = ExtResource("11_f3c8l")
+stream_1/stream = ExtResource("12_bu0y5")
+stream_2/stream = ExtResource("13_6a4tp")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o5yvi"]
 radius = 100.0
@@ -269,6 +293,15 @@ stream_0/stream = ExtResource("15_xe308")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1phco"]
 size = Vector2(64, 64)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f3c8l"]
+radius = 500.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3c8l"]
+size = Vector2(1000, 666)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bu0y5"]
+size = Vector2(350, 250)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pd6oq"]
 resource_name = "Material.001"
@@ -626,6 +659,10 @@ offset_top = -11158.0
 offset_right = 10311.0
 offset_bottom = 11217.0
 
+[node name="MazeCenter" type="Sprite2D" parent="Map" unique_id=1397168792]
+position = Vector2(65, 362)
+texture = SubResource("GradientTexture2D_bu0y5")
+
 [node name="utlina" type="StaticBody2D" parent="Map" unique_id=1508186478]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/utlina" unique_id=980021477]
@@ -800,7 +837,7 @@ position = Vector2(-501, -1086)
 texture = ExtResource("3_h4fw4")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1674180056 node_paths=PackedStringArray("speech_bubble", "you_won_label") groups=["Player"]]
-position = Vector2(-1011, 6300)
+position = Vector2(1350, -4467)
 motion_mode = 1
 script = ExtResource("2_qxrlw")
 SPEED = 500.0
@@ -829,7 +866,7 @@ script = ExtResource("6_v158k")
 
 [node name="Footsteps" type="AudioStreamPlayer" parent="Player" unique_id=134937160]
 stream = SubResource("AudioStreamRandomizer_1l0tm")
-volume_db = -12.0
+volume_db = -6.0
 pitch_scale = 2.0
 max_polyphony = 3
 bus = &"PlayerFX"
@@ -857,6 +894,11 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_6uxt2")
 value = 50.0
 show_percentage = false
 script = ExtResource("10_i26dy")
+
+[node name="DamageSounds" type="AudioStreamPlayer" parent="Player" unique_id=460929446]
+stream = SubResource("AudioStreamRandomizer_6uxt2")
+volume_db = -6.0
+pitch_scale = 1.8
 
 [node name="Teleporters" type="Node2D" parent="." unique_id=428377364]
 
@@ -939,7 +981,7 @@ position = Vector2(233, 2860)
 stream = SubResource("AudioStreamPlaylist_3dryh")
 volume_db = -12.0
 autoplay = true
-attenuation = 3.0314329
+attenuation = 1.999999
 
 [node name="BrainAudio" type="AudioStreamPlayer2D" parent="Audio" unique_id=1919914372]
 position = Vector2(-4, -6426)
@@ -951,24 +993,30 @@ attenuation = 0.37892905
 
 [node name="Ambience" type="AudioStreamPlayer" parent="Audio" unique_id=60544856]
 stream = SubResource("AudioStreamPlaylist_rfjv2")
-volume_db = -12.0
+volume_db = -18.0
 autoplay = true
 bus = &"Ambience"
 
 [node name="EnemyDeathsound" type="AudioStreamPlayer" parent="Audio" unique_id=1104864764]
 stream = SubResource("AudioStreamRandomizer_d3cha")
-volume_db = -18.0
+volume_db = -24.0
 bus = &"Teleport FX"
 script = ExtResource("16_d3cha")
 
+[node name="StartGame" type="AudioStreamPlayer" parent="Audio" unique_id=983560118]
+stream = ExtResource("21_bu0y5")
+volume_db = -12.0
+autoplay = true
+
 [node name="collectionItem1" type="Area2D" parent="." unique_id=380358405 node_paths=PackedStringArray("speech_bubble")]
-position = Vector2(-256, -630)
+position = Vector2(243, -4603)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("15_7t8sx")
 speech_bubble = NodePath("../UILayer/UI/Panel")
 
 [node name="Sprite2D" type="Sprite2D" parent="collectionItem1" unique_id=1431445822]
 texture_filter = 1
+scale = Vector2(2, 2)
 texture = ExtResource("16_iivbl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="collectionItem1" unique_id=1342239179]
@@ -979,13 +1027,14 @@ debug_color = Color(0, 0.6, 0.7019608, 0.41960785)
 [node name="Followers" type="Node2D" parent="." unique_id=2106635774]
 
 [node name="collectionItem2" type="Area2D" parent="." unique_id=1411431683 node_paths=PackedStringArray("speech_bubble")]
-position = Vector2(-10, -527)
+position = Vector2(-3057, 1684)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("17_mg4q0")
 speech_bubble = NodePath("../UILayer/UI/Panel")
 
 [node name="Sprite2D" type="Sprite2D" parent="collectionItem2" unique_id=1436417151]
 texture_filter = 1
+scale = Vector2(2, 2)
 texture = ExtResource("16_85qyi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="collectionItem2" unique_id=2146556122]
@@ -994,13 +1043,14 @@ shape = SubResource("RectangleShape2D_1phco")
 debug_color = Color(0, 0.6, 0.7019608, 0.41960785)
 
 [node name="collectionItem3" type="Area2D" parent="." unique_id=775151335 node_paths=PackedStringArray("speech_bubble")]
-position = Vector2(-823, -662)
+position = Vector2(2094, -1380)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("19_vm72l")
 speech_bubble = NodePath("../UILayer/UI/Panel")
 
 [node name="Sprite2D" type="Sprite2D" parent="collectionItem3" unique_id=159567779]
 texture_filter = 1
+scale = Vector2(2, 2)
 texture = ExtResource("17_iivbl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="collectionItem3" unique_id=1349600051]
@@ -1009,13 +1059,14 @@ shape = SubResource("RectangleShape2D_1phco")
 debug_color = Color(0, 0.6, 0.7019608, 0.41960785)
 
 [node name="collectionItem4" type="Area2D" parent="." unique_id=1664868019 node_paths=PackedStringArray("speech_bubble")]
-position = Vector2(-452, -484)
+position = Vector2(1234, -933)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("13_1phco")
 speech_bubble = NodePath("../UILayer/UI/Panel")
 
 [node name="Sprite2D" type="Sprite2D" parent="collectionItem4" unique_id=1294982882]
 texture_filter = 1
+scale = Vector2(2, 2)
 texture = ExtResource("18_7nbq1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="collectionItem4" unique_id=1408983803]
@@ -1027,8 +1078,14 @@ debug_color = Color(0, 0.6, 0.7019608, 0.41960785)
 script = ExtResource("20_7nbq1")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Lungarea" unique_id=706156334]
+visible = false
 position = Vector2(-708, -1715)
 polygon = PackedVector2Array(-172, -10, -321, -8, -544, -154, -574, -451, -530, -657, -257, -1234, -60, -1541, 210, -1898, 340, -1958, 537, -1888, 621, -1558, 667, -1381, 767, -1425, 941, -1418, 1031, -1415, 1088, -1635, 1138, -1842, 1281, -1968, 1428, -1875, 1515, -1695, 1748, -1495, 1968, -1048, 2108, -697, 2188, -237, 2055, -87, 1688, -14, 1461, -7, 1161, -150, 991, -360, 904, -724, 934, -958, 944, -1171, 887, -1281, 757, -1244, 744, -1114, 724, -884, 707, -697, 677, -384, 597, -210, 400, -50, 254, -7)
+disabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lungarea" unique_id=1815560264]
+position = Vector2(803, -2352)
+shape = SubResource("CircleShape2D_f3c8l")
 
 [node name="brainarea" type="Area2D" parent="." unique_id=1952738494]
 script = ExtResource("21_exi56")
@@ -1041,14 +1098,26 @@ polygon = PackedVector2Array(-189, 47, -410, -22, -772, -382, -825, -773, -655, 
 script = ExtResource("25_22asu")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rainforest" unique_id=517542704]
+visible = false
 position = Vector2(-375, -334)
 polygon = PackedVector2Array(155, -23, 240, -128, 349, -75, 506, 21, 756, -7, 957, 13, 1018, 94, 1392, 25, 1396, -95, 1674, -172, 1723, -269, 1775, -482, 1755, -768, 1654, -805, 1517, -728, 1449, -627, 1408, -954, 1239, -1111, 1050, -1123, 905, -1115, 961, -1256, 909, -1365, 699, -1429, 478, -1429, 208, -1397, -99, -1304, -296, -1268, -554, -1188, -747, -986, -852, -700, -868, -490, -852, -289, -764, -79, -627, -39, -405, -79, -304, -269, -151, -309, -252, -216, -332, -71, -357, 1, -147, 17, 83, -7)
+disabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rainforest" unique_id=1383996506]
+position = Vector2(-495, -1084)
+shape = SubResource("RectangleShape2D_f3c8l")
 
 [node name="Maze" type="Area2D" parent="." unique_id=1630323209]
 script = ExtResource("26_fkdbe")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Maze" unique_id=456149713]
+visible = false
 polygon = PackedVector2Array(-50, -252, -210, -330, -360, -325, -554, -304, -797, -273, -1149, -258, -1322, -247, -1322, 325, -1318, 778, -1293, 865, -902, 854, -630, 850, -451, 816, -336, 829, -239, 829, 16, 854, 323, 879, 540, 858, 825, 860, 975, 866, 1119, 858, 1292, 854, 1328, 638, 1321, 227, 1313, -134, 967, -164, 460, -200, 217, -219)
+disabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Maze" unique_id=2110661215]
+position = Vector2(63, 364)
+shape = SubResource("RectangleShape2D_bu0y5")
 
 [node name="UILayer" type="CanvasLayer" parent="." unique_id=1355513190]
 
@@ -1260,6 +1329,7 @@ autostart = true
 top_level = true
 
 [connection signal="CharacterDied" from="Player" to="." method="_on_player_character_died"]
+[connection signal="TookDamage" from="Player" to="Player/Camera2D" method="_on_player_took_damage"]
 [connection signal="PlayerWon" from="Player" to="." method="_on_player_player_won"]
 [connection signal="timeout" from="Player/Sprite2D/Timer" to="Player/Sprite2D" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Teleporters/Teleporter" to="Teleporters/Teleporter" method="_on_body_entered"]

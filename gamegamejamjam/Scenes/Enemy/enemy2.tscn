@@ -37,6 +37,7 @@ stream_1/stream = ExtResource("6_ptu8m")
 radius = 64.0
 
 [node name="Enemy2" type="CharacterBody2D" unique_id=130497674 groups=["Enemies"]]
+collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_ymnt4")
 
