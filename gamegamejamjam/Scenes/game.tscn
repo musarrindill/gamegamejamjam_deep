@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://4evb1n10ynxk" path="res://Scenes/Spawnable/spawnable_character.tscn" id="9_nnt18"]
 [ext_resource type="Script" uid="uid://dphj4ehn11wyk" path="res://Scenes/Teleporter/teleporter.gd" id="10_ldgsr"]
 [ext_resource type="AudioStream" uid="uid://c7f66xfcux0wb" path="res://Music/gamejam4_tune.wav" id="10_o5yvi"]
+[ext_resource type="AudioStream" uid="uid://bng3sg1mf17a6" path="res://resources/teleport.mp3" id="11_oeip8"]
 [ext_resource type="AudioStream" uid="uid://ond2bfrtprnl" path="res://Music/gamejam_soundscape_1.mp3" id="12_rku1e"]
 [ext_resource type="Script" uid="uid://dg6s12t3e38s6" path="res://Scenes/object.gd" id="13_1phco"]
 [ext_resource type="Script" path="res://Scenes/collection_item_1.gd" id="15_7t8sx"]
@@ -28,8 +29,8 @@
 [ext_resource type="Script" path="res://Scenes/reainforest.gd" id="25_22asu"]
 [ext_resource type="Script" path="res://Scenes/maze.gd" id="26_fkdbe"]
 [ext_resource type="Texture2D" uid="uid://b5ka7jgssqhhi" path="res://3d/lopoly_babyface_babyTex.png" id="27_8m3t6"]
-[ext_resource type="Script" uid="uid://rfnvvq65r7mh" path="res://Scenes/lopoly_babyface.gd" id="27_ese38"]
-[ext_resource type="Script" uid="uid://c8m2vhrgwlurx" path="res://Scenes/spawnpoint.gd" id="28_tgy6u"]
+[ext_resource type="Script" path="res://Scenes/lopoly_babyface.gd" id="27_ese38"]
+[ext_resource type="Script" path="res://Scenes/spawnpoint.gd" id="28_tgy6u"]
 [ext_resource type="PackedScene" uid="uid://trwww3g7b2i" path="res://Scenes/Enemy/enemy2.tscn" id="29_cwurv"]
 [ext_resource type="PackedScene" uid="uid://cccc6ivm404ed" path="res://Scenes/Enemy/enemy3.tscn" id="30_mucmn"]
 
@@ -841,6 +842,9 @@ position = Vector2(16, -233)
 
 [node name="Sprite2D" type="Sprite2D" parent="Teleporters/Teleporter2" unique_id=1476213428]
 texture = SubResource("GradientTexture2D_8m3t6")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Teleporters/Teleporter2" unique_id=1631376447]
+stream = ExtResource("11_oeip8")
 
 [node name="Teleporter3" type="Area2D" parent="Teleporters" unique_id=133768605 node_paths=PackedStringArray("counterpart", "offset")]
 position = Vector2(-1839, 6423)

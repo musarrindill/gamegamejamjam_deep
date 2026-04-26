@@ -1,53 +1,56 @@
 extends CharacterBody2D
-
 @export var SPEED = 300.0
-
 @onready var audio_stream_player: AudioStreamPlayer = $Footsteps
 @onready var sprite_2d: Sprite2D = $Sprite2D
+
 var current_zone := ""
-
-enum States{IDLE, RUNNING}
+enum States{IDLE, RUNNING, SPRINTING}
 var state : int = 0
-
 var direction : Vector2
+var sprint_timer := 0
+var is_sprinting := false
+var can_sprint := true
 
 func _physics_process(delta: float) -> void:
+	direction = Input.get_vector("Left", "Right", "Up", "Down").normalized()
+
+	if sprint_timer > 0:
+		sprint_timer -= 1
+	else:
+		is_sprinting = false
+
 	if direction:
-		state = States.RUNNING
+		state = States.SPRINTING if is_sprinting else States.RUNNING
 	else:
 		state = States.IDLE
-		
-	
-	if state in [States.RUNNING]:
-		_run()
-	
-	if state in [States.IDLE]:
-		_idle()
-	
-	velocity = lerp(velocity, velocity, 1 * delta)
-	
+
+	match state:
+		States.RUNNING:
+			_run(1.0)
+		States.SPRINTING:
+			_run(2.0)
+		States.IDLE:
+			_idle()
+
 	move_and_slide()
 
-func _run() -> void:
-	velocity.x = direction.x * SPEED
-	velocity.y = direction.y * SPEED
-	
-	if audio_stream_player.is_playing() == false:
-			audio_stream_player.play(0)
-
-func _dash() -> void:
-	print("dash")
-	var dashMult: float = 10
-	velocity += direction * SPEED * dashMult
-	move_and_slide()
+func _run(speed_mult: float) -> void:
+	velocity.x = direction.x * SPEED * speed_mult
+	velocity.y = direction.y * SPEED * speed_mult
+	audio_stream_player.pitch_scale = speed_mult
+	if not audio_stream_player.is_playing():
+		audio_stream_player.play(0)
 
 func _idle() -> void:
 	velocity.x = move_toward(velocity.x, 0, SPEED)
 	velocity.y = move_toward(velocity.y, 0, SPEED)
+	audio_stream_player.pitch_scale = 1.0
 
 func _unhandled_input(event: InputEvent) -> void:
-	direction = Input.get_vector("Left", "Right", "Up", "Down").normalized()
-	
-	if event.is_action_pressed("ui_accept"):
-		_dash()
-	
+	if event.is_action_pressed("ui_accept") and can_sprint and direction:
+		is_sprinting = true
+		can_sprint = false
+		sprint_timer = 30
+
+	if event.is_action_released("ui_accept"):
+		can_sprint = true
