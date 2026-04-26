@@ -1,0 +1,28 @@
+{
+	"item_acquired_brain": [
+    "Brain gizmo acquired"
+  ],
+	"item_acquired_rainforest": [
+    "Rainforest gizmo acquired"
+  ],
+	"item_acquired_maze": [
+    "Maze gizmo acquired"
+  ],
+	"item_acquired_lungs": [
+    "Lungs gizmo acquired"
+  ],
+  "no_spawns_left": [
+    "No more spawns left cuh, time to test ya patience"
+  ],
+  "intro": [
+	"Press SPACE to dash",
+	"Collect the gizmos and add them to their correct place to win",
+	"Press E to drop gizmos"
+  ],
+  "wrong_body_part": [
+	"Wrong body part for these current gems my bwoi"
+  ],
+  "correct_body_part": [
+	"Nice, that one belongs there"
+  ]
+}
