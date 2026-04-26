@@ -8,6 +8,7 @@ extends CharacterBody2D
 
 signal CharacterDied
 signal TookDamage
+signal PlayerWon
 
 var current_zone := ""
 var carried_items: Array = []
@@ -20,6 +21,12 @@ var can_sprint := true
 
 var alive : bool = true
 @export var maxHealth : int = 250
+@export var total_items_needed := 4
+@export var you_won_label: Label
+
+var placed_items := 0
+var has_won := false
+
 var health : int :
 	set(value):
 		health = value
@@ -35,6 +42,8 @@ var health : int :
 
 func _ready() -> void:
 	health = maxHealth
+	if you_won_label:
+		you_won_label.visible = false	
 
 func _physics_process(delta: float) -> void:
 	direction = Input.get_vector("Left", "Right", "Up", "Down").normalized()
@@ -85,12 +94,31 @@ func _die():
 	alive = false
 	visible = false
 	CharacterDied.emit()
+func check_win():
+	if placed_items >= total_items_needed:
+		win_game()
+
+func win_game():
+	if has_won:
+		return
+
+	has_won = true
+	alive = false
+	velocity = Vector2.ZERO
+
+	if you_won_label:
+		you_won_label.visible = true
+
+	PlayerWon.emit()
 		
 func _process(_delta):
 	if Input.is_action_just_pressed("drop"):
 		handle_drop()
 
 func handle_drop():
+	if has_won:
+		return
+
 	if carried_items.is_empty():
 		return
 
@@ -103,6 +131,8 @@ func handle_drop():
 	if correct_items.size() > 0:
 		for item in correct_items:
 			item.drop()
-			carried_items.erase(item)
+			placed_items += 1
+
+		check_win()
 	else:
 		speech_bubble.say_one("wrong_body_part", 3.0)
