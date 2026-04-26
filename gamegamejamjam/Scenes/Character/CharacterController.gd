@@ -1,8 +1,11 @@
 extends CharacterBody2D
+
 @export var SPEED = 300.0
 @onready var audio_stream_player: AudioStreamPlayer = $Footsteps
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @export var speech_bubble: Panel
+
+signal CharacterDied
 
 var current_zone := ""
 var carried_items: Array = []
@@ -12,6 +15,21 @@ var direction : Vector2
 var sprint_timer := 0
 var is_sprinting := false
 var can_sprint := true
+
+var alive : bool = true
+@export var maxHealth : int = 250
+var health : int :
+	set(value):
+		health = value
+		print("health changed: ", health)
+		
+		if value <= 0:
+			_die()
+	get:
+		return health
+
+func _ready() -> void:
+	health = maxHealth
 
 func _physics_process(delta: float) -> void:
 	direction = Input.get_vector("Left", "Right", "Up", "Down").normalized()
@@ -33,8 +51,9 @@ func _physics_process(delta: float) -> void:
 			_run(2.0)
 		States.IDLE:
 			_idle()
-
-	move_and_slide()
+	
+	if alive:
+		move_and_slide()
 
 func _run(speed_mult: float) -> void:
 	velocity.x = direction.x * SPEED * speed_mult
@@ -56,6 +75,11 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	if event.is_action_released("ui_accept"):
 		can_sprint = true
+
+func _die():
+	alive = false
+	visible = false
+	CharacterDied.emit()
 		
 func _process(_delta):
 	if Input.is_action_just_pressed("drop"):

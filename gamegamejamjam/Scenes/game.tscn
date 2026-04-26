@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://b6pw4bni8b3qi" path="res://Scenes/Character/character_camera.gd" id="6_v158k"]
 [ext_resource type="Script" uid="uid://btwllo8yvnmtr" path="res://Scenes/ClickSpawnFunctionality/click_spawn_component.gd" id="8_nb51f"]
 [ext_resource type="PackedScene" uid="uid://4evb1n10ynxk" path="res://Scenes/Spawnable/spawnable_character.tscn" id="9_nnt18"]
+[ext_resource type="Script" uid="uid://bg2rhw7efx4ms" path="res://Scenes/Spawnable/progress_bar.gd" id="10_i26dy"]
 [ext_resource type="Script" uid="uid://dphj4ehn11wyk" path="res://Scenes/Teleporter/teleporter.gd" id="10_ldgsr"]
 [ext_resource type="AudioStream" uid="uid://c7f66xfcux0wb" path="res://Music/gamejam4_tune.wav" id="10_o5yvi"]
 [ext_resource type="AudioStream" uid="uid://bng3sg1mf17a6" path="res://SFX/teleport.mp3" id="11_oeip8"]
@@ -220,6 +221,12 @@ random_pitch = 1.0293022
 random_volume_offset_db = 6.0
 streams_count = 1
 stream_0/stream = SubResource("AudioStreamMP3_wowpa")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lmoi6"]
+bg_color = Color(0.69609565, 0.6960957, 0.6960956, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6uxt2"]
+bg_color = Color(0.53823394, 0.6641714, 0, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o5yvi"]
 radius = 100.0
@@ -812,7 +819,7 @@ script = ExtResource("5_1l0tm")
 wait_time = 0.25
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1012277471]
-zoom = Vector2(1.5, 1.5)
+zoom = Vector2(1.25, 1.25)
 position_smoothing_speed = 10.0
 script = ExtResource("6_v158k")
 
@@ -829,6 +836,23 @@ script = ExtResource("8_nb51f")
 Spawnable = ExtResource("9_nnt18")
 followerGroup = NodePath("../../Followers")
 speech_bubble = NodePath("../../UILayer/UI/Panel")
+
+[node name="ProgressBar" type="ProgressBar" parent="Player" unique_id=1844113004]
+custom_minimum_size = Vector2(100, 10)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -52.0
+offset_top = -49.0
+offset_right = 48.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_lmoi6")
+theme_override_styles/fill = SubResource("StyleBoxFlat_6uxt2")
+value = 50.0
+show_percentage = false
+script = ExtResource("10_i26dy")
 
 [node name="Teleporters" type="Node2D" parent="." unique_id=428377364]
 
@@ -1176,7 +1200,7 @@ script = ExtResource("28_tgy6u")
 enemyToSpawn = ExtResource("29_cwurv")
 
 [node name="SpawnTimer" type="Timer" parent="Spawnpoint3" unique_id=1338227736]
-wait_time = 10.0
+wait_time = 3.0
 autostart = true
 
 [node name="EnemiesSpawned" type="Node2D" parent="Spawnpoint3" unique_id=1802640416]
@@ -1218,6 +1242,7 @@ autostart = true
 [node name="EnemiesSpawned" type="Node2D" parent="Spawnpoint4" unique_id=129017155]
 top_level = true
 
+[connection signal="CharacterDied" from="Player" to="." method="_on_player_character_died"]
 [connection signal="timeout" from="Player/Sprite2D/Timer" to="Player/Sprite2D" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Teleporters/Teleporter" to="Teleporters/Teleporter" method="_on_body_entered"]
 [connection signal="body_entered" from="Teleporters/Teleporter2" to="Teleporters/Teleporter2" method="_on_body_entered"]
