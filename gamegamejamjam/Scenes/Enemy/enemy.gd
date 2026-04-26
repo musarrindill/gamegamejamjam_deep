@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Enemy
 
 @export var SPEED = 150
 @onready var sprite_2d: Sprite2D = $Sprite2D
@@ -14,6 +15,7 @@ var state: int
 var animFrame : int 
 
 func _ready() -> void:
+	
 	state = States.IDLE
 	health = maxHealth
 
@@ -45,6 +47,7 @@ func _idle() -> void:
 	velocity = Vector2.ZERO
 
 func _die() -> void:
+	SignalBus.EnemyDied.emit()
 	queue_free()
 
 func _on_search_area_body_entered(body: Node2D) -> void:
