@@ -604,6 +604,9 @@ bg_color = Color(0, 0.7603484, 0.5917252, 1)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i26dy"]
 texture = ExtResource("30_d3cha")
 
+[sub_resource type="SystemFont" id="SystemFont_6uxt2"]
+font_names = PackedStringArray("Comic Sans MS")
+
 [node name="Game" type="Node2D" unique_id=1268051739]
 script = ExtResource("1_wowpa")
 
@@ -796,12 +799,13 @@ shape = SubResource("SegmentShape2D_32sfa")
 position = Vector2(-501, -1086)
 texture = ExtResource("3_h4fw4")
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=1674180056 node_paths=PackedStringArray("speech_bubble") groups=["Player"]]
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1674180056 node_paths=PackedStringArray("speech_bubble", "you_won_label") groups=["Player"]]
 position = Vector2(-1011, 6300)
 motion_mode = 1
 script = ExtResource("2_qxrlw")
 SPEED = 500.0
 speech_bubble = NodePath("../UILayer/UI/Panel")
+you_won_label = NodePath("../UILayer/UI/youWonLabel")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=504895108]
 shape = SubResource("RectangleShape2D_ebmjs")
@@ -951,18 +955,17 @@ volume_db = -12.0
 autoplay = true
 bus = &"Ambience"
 
+[node name="EnemyDeathsound" type="AudioStreamPlayer" parent="Audio" unique_id=1104864764]
+stream = SubResource("AudioStreamRandomizer_d3cha")
+volume_db = -18.0
+bus = &"Teleport FX"
+script = ExtResource("16_d3cha")
 
 [node name="collectionItem1" type="Area2D" parent="." unique_id=380358405 node_paths=PackedStringArray("speech_bubble")]
 position = Vector2(-256, -630)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("15_7t8sx")
 speech_bubble = NodePath("../UILayer/UI/Panel")
-
-[node name="EnemyDeathsound" type="AudioStreamPlayer" parent="Audio" unique_id=1104864764]
-stream = SubResource("AudioStreamRandomizer_d3cha")
-volume_db = -18.0
-bus = &"Teleport FX"
-script = ExtResource("16_d3cha")
 
 [node name="Sprite2D" type="Sprite2D" parent="collectionItem1" unique_id=1431445822]
 texture_filter = 1
@@ -1194,6 +1197,20 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
+[node name="youWonLabel" type="Label" parent="UILayer/UI" unique_id=246644435]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 380.0
+offset_right = 1924.0
+offset_bottom = 1067.0
+theme_override_colors/font_color = Color(1, 0.16078432, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_6uxt2")
+theme_override_font_sizes/font_size = 250
+text = "YOU WON
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Spawnpoint3" type="Node2D" parent="." unique_id=1742073134]
 position = Vector2(225, -4155)
 script = ExtResource("28_tgy6u")
@@ -1243,6 +1260,7 @@ autostart = true
 top_level = true
 
 [connection signal="CharacterDied" from="Player" to="." method="_on_player_character_died"]
+[connection signal="PlayerWon" from="Player" to="." method="_on_player_player_won"]
 [connection signal="timeout" from="Player/Sprite2D/Timer" to="Player/Sprite2D" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Teleporters/Teleporter" to="Teleporters/Teleporter" method="_on_body_entered"]
 [connection signal="body_entered" from="Teleporters/Teleporter2" to="Teleporters/Teleporter2" method="_on_body_entered"]
