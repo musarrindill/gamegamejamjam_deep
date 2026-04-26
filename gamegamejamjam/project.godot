@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 buses/default_bus_layout="uid://bb8p6ddqg60eh"
 
+[autoload]
+
+SignalBus="*uid://dlfkg38to2a6q"
+
 [display]
 
 window/size/viewport_width=1920
