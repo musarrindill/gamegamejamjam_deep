@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://cu8m815u5n0ps"]
+
+[ext_resource type="Script" uid="uid://cc4o7j15kslce" path="res://Scenes/controls_information.gd" id="1_n3eo0"]
+
+[sub_resource type="SystemFont" id="SystemFont_n3eo0"]
+font_names = PackedStringArray("Apple Chancery")
+
+[sub_resource type="SystemFont" id="SystemFont_nvfcy"]
+font_names = PackedStringArray("Apple Chancery")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n3eo0"]
+bg_color = Color(0.31243443, 0.36148262, 0.7720221, 1)
+
+[node name="ControlsInformation" type="Control" unique_id=189146801]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n3eo0")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1892904139]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="." unique_id=1833499322]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_top = 33.0
+offset_right = 28.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = SubResource("SystemFont_n3eo0")
+theme_override_font_sizes/font_size = 24
+text = "- WASD or ARROW KEYS to walk
+- SPACEBAR to dash
+- LEFT MOUSE BUTTON to spawn allies
+- Z to zoom in or out
+- Backspace to restart"
+
+[node name="Button" type="Button" parent="." unique_id=817674428]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 0
+offset_left = 27.0
+offset_top = 253.0
+offset_right = 377.0
+offset_bottom = 330.0
+size_flags_vertical = 3
+theme_override_fonts/font = SubResource("SystemFont_nvfcy")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_n3eo0")
+text = "Back to main menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

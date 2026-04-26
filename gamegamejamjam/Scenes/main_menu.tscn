@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://54akmjtkuijr"]
+
+[ext_resource type="Script" uid="uid://dq3g72rnhlc6q" path="res://Scenes/main_menu.gd" id="1_28flt"]
+[ext_resource type="Texture2D" uid="uid://b605ljymsmnm8" path="res://Art/gamejammap.png" id="2_48xlc"]
+[ext_resource type="AudioStream" uid="uid://dlbc8rn34q3ag" path="res://Music/gamejam1_tune.wav" id="3_1ehe0"]
+
+[sub_resource type="SystemFont" id="SystemFont_erv1k"]
+font_names = PackedStringArray("Apple Chancery")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_28flt"]
+bg_color = Color(0.31243443, 0.36148262, 0.7720221, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_1ehe0"]
+font_names = PackedStringArray("Apple Chancery")
+
+[node name="MainMenu" type="Control" unique_id=1220025350]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_28flt")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1488351043]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1381575959]
+position = Vector2(949.99994, 701.99994)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_48xlc")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1043003703]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="HBoxContainer" unique_id=1778982078]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer" unique_id=108804685]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_constants/margin_top = 333
+theme_override_constants/margin_bottom = 333
+
+[node name="Control2" type="VBoxContainer" parent="HBoxContainer/MarginContainer" unique_id=212858503]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 50
+
+[node name="Play" type="Button" parent="HBoxContainer/MarginContainer/Control2" unique_id=1526896375]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = SubResource("SystemFont_erv1k")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_28flt")
+text = "Play game"
+
+[node name="Control" type="Button" parent="HBoxContainer/MarginContainer/Control2" unique_id=1419278911]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = SubResource("SystemFont_erv1k")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_28flt")
+text = "Controls"
+
+[node name="Quit" type="Button" parent="HBoxContainer/MarginContainer/Control2" unique_id=966418428]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = SubResource("SystemFont_erv1k")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_28flt")
+text = "Quit"
+
+[node name="Control3" type="Control" parent="HBoxContainer" unique_id=944237735]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2034154121]
+stream = ExtResource("3_1ehe0")
+volume_db = -6.0
+autoplay = true
+
+[node name="CheckButton" type="CheckButton" parent="." unique_id=1339323855]
+layout_mode = 0
+offset_left = 1688.0
+offset_top = 1006.0
+offset_right = 1899.0
+offset_bottom = 1053.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_1ehe0")
+theme_override_font_sizes/font_size = 24
+theme_override_colors/button_checked_color = Color(0.6252752, 0.8360008, 0.44720745, 1)
+text = "Toggle fullscreen"
+
+[connection signal="pressed" from="HBoxContainer/MarginContainer/Control2/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/Control2/Control" to="." method="_on_control_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/Control2/Quit" to="." method="_on_quit_pressed"]
+[connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]

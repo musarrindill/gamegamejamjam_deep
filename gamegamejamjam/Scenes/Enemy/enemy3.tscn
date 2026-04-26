@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://bnd4pagmhmde0" path="res://SFX/hitsound2.mp3" id="5_1f5y1"]
 [ext_resource type="AudioStream" uid="uid://canewtahe3cm2" path="res://SFX/hitsound.mp3" id="6_qbru7"]
 [ext_resource type="Script" uid="uid://cswqtf48uu6hb" path="res://Scenes/Enemy/hurtsound.gd" id="7_pb685"]
+[ext_resource type="Script" uid="uid://dl6n8gb8x4lfl" path="res://Scenes/Enemy/enemy_attack.gd" id="8_qbru7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d40jh"]
 atlas = ExtResource("2_p88eb")
@@ -31,6 +32,9 @@ random_pitch = 1.1892071
 streams_count = 2
 stream_0/stream = ExtResource("5_1f5y1")
 stream_1/stream = ExtResource("6_qbru7")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pb685"]
+radius = 64.0
 
 [node name="Enemy3" type="CharacterBody2D" unique_id=130497674 groups=["Enemies"]]
 motion_mode = 1
@@ -80,7 +84,20 @@ stream = SubResource("AudioStreamRandomizer_1auq8")
 volume_db = -12.0
 script = ExtResource("7_pb685")
 
+[node name="EnemyAttack" type="Area2D" parent="." unique_id=2014873029]
+script = ExtResource("8_qbru7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyAttack" unique_id=166076318]
+shape = SubResource("CircleShape2D_pb685")
+
+[node name="Cooldown" type="Timer" parent="EnemyAttack" unique_id=2143750531]
+wait_time = 0.5
+autostart = true
+
 [connection signal="body_entered" from="SearchArea" to="." method="_on_search_area_body_entered"]
 [connection signal="body_exited" from="SearchArea" to="." method="_on_search_area_body_exited"]
 [connection signal="TookDamage" from="Hitbox" to="Hurtsound" method="_on_hitbox_took_damage"]
 [connection signal="timeout" from="SpriteTimer" to="." method="_on_sprite_timer_timeout"]
+[connection signal="body_entered" from="EnemyAttack" to="EnemyAttack" method="_on_body_entered"]
+[connection signal="body_exited" from="EnemyAttack" to="EnemyAttack" method="_on_body_exited"]
+[connection signal="timeout" from="EnemyAttack/Cooldown" to="EnemyAttack" method="_on_cooldown_timeout"]
